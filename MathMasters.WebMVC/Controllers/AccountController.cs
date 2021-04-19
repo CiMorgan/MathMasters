@@ -9,6 +9,7 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using MathMasters.WebMVC.Models;
+using MathMasters.Data;
 
 namespace MathMasters.WebMVC.Controllers
 {

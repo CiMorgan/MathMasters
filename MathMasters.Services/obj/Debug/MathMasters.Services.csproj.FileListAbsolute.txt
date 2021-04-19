@@ -1,0 +1,16 @@
+C:\Users\camor\OneDrive\Documents\Computer Science\ElevenFiftyProjects\RedBadge\MathMasters\MathMasters.Services\bin\Debug\MathMasters.Services.dll
+C:\Users\camor\OneDrive\Documents\Computer Science\ElevenFiftyProjects\RedBadge\MathMasters\MathMasters.Services\bin\Debug\MathMasters.Services.pdb
+C:\Users\camor\OneDrive\Documents\Computer Science\ElevenFiftyProjects\RedBadge\MathMasters\MathMasters.Services\obj\Debug\MathMasters.Services.csprojAssemblyReference.cache
+C:\Users\camor\OneDrive\Documents\Computer Science\ElevenFiftyProjects\RedBadge\MathMasters\MathMasters.Services\obj\Debug\MathMasters.Services.csproj.CoreCompileInputs.cache
+C:\Users\camor\OneDrive\Documents\Computer Science\ElevenFiftyProjects\RedBadge\MathMasters\MathMasters.Services\obj\Debug\MathMasters.Services.dll
+C:\Users\camor\OneDrive\Documents\Computer Science\ElevenFiftyProjects\RedBadge\MathMasters\MathMasters.Services\obj\Debug\MathMasters.Services.pdb
+C:\Users\camor\OneDrive\Documents\Computer Science\ElevenFiftyProjects\RedBadge\MathMasters\MathMasters.Services\bin\Debug\MathMasters.Services.dll.config
+C:\Users\camor\OneDrive\Documents\Computer Science\ElevenFiftyProjects\RedBadge\MathMasters\MathMasters.Services\bin\Debug\EntityFramework.dll
+C:\Users\camor\OneDrive\Documents\Computer Science\ElevenFiftyProjects\RedBadge\MathMasters\MathMasters.Services\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\camor\OneDrive\Documents\Computer Science\ElevenFiftyProjects\RedBadge\MathMasters\MathMasters.Services\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\camor\OneDrive\Documents\Computer Science\ElevenFiftyProjects\RedBadge\MathMasters\MathMasters.Services\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\camor\OneDrive\Documents\Computer Science\ElevenFiftyProjects\RedBadge\MathMasters\MathMasters.Services\bin\Debug\EntityFramework.xml
+C:\Users\camor\OneDrive\Documents\Computer Science\ElevenFiftyProjects\RedBadge\MathMasters\MathMasters.Services\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\camor\OneDrive\Documents\Computer Science\ElevenFiftyProjects\RedBadge\MathMasters\MathMasters.Services\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\camor\OneDrive\Documents\Computer Science\ElevenFiftyProjects\RedBadge\MathMasters\MathMasters.Services\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\camor\OneDrive\Documents\Computer Science\ElevenFiftyProjects\RedBadge\MathMasters\MathMasters.Services\obj\Debug\MathMasters.Services.csproj.CopyComplete
