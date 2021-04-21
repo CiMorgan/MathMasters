@@ -19,7 +19,7 @@ namespace MathMasters.Data
         [Required]
         [Display(Name = "Available Times")]
         public List<ListOfTimes> Time { get; set; }
-        [Required]
+
         [Display(Name = "Courses")]
         public virtual ICollection<Tutor> TutorList { get; set; }
     }

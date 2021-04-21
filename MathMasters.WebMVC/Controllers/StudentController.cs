@@ -1,4 +1,6 @@
 ﻿using MathMasters.Models;
+using MathMasters.Services;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -13,7 +15,9 @@ namespace MathMasters.WebMVC.Controllers
         // GET: Student
         public ActionResult Index()
         {
-            var model = new AllStudentList[0];
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new StudentService(userId);
+            var model = service.GetAllStudents();
             return View(model);
         }
 
@@ -25,11 +29,16 @@ namespace MathMasters.WebMVC.Controllers
         [ValidateAntiForgeryToken]
         public ActionResult Create(CreateStudent model)
         {
-            if (ModelState.IsValid)
+            if (!ModelState.IsValid)
             {
-
+                return View(model);
             }
-            return View(model);
+            var userId = Guid.Parse(User.Identity.GetUserId());
+            var service = new StudentService(userId);
+
+            service.CreateStudent(model);
+
+            return RedirectToAction("Index");
         }
     }
 }

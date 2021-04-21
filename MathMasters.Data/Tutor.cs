@@ -39,7 +39,6 @@ namespace MathMasters.Data
         [Required]
         [Display(Name = "Location")]
         public ListOfLocations Location { get; set; }
-        [Required]
         [Display(Name = "Courses")]
         public virtual ICollection<Course> CourseList { get; set; }
     }

@@ -54,11 +54,25 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="CourseService.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ScheduleService.cs" />
+    <Compile Include="StudentService.cs" />
+    <Compile Include="TutorService.cs" />
   </ItemGroup>
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\MathMasters.Data\MathMasters.Data.csproj">
+      <Project>{00bcede9-1888-49f4-ab53-5bb12bfbec96}</Project>
+      <Name>MathMasters.Data</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\MathMasters.Models\MathMasters.Models.csproj">
+      <Project>{2692c8a7-7943-494e-b9ba-90245e225d11}</Project>
+      <Name>MathMasters.Models</Name>
+    </ProjectReference>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
