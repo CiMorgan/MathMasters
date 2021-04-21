@@ -60,6 +60,10 @@
     <Compile Include="CreateSchedule.cs" />
     <Compile Include="CreateStudent.cs" />
     <Compile Include="CreateTutor.cs" />
+    <Compile Include="DetailCourse.cs" />
+    <Compile Include="DetailSchedule.cs" />
+    <Compile Include="DetailStudent.cs" />
+    <Compile Include="DetailTutor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AllStudentList.cs" />
     <Compile Include="AllTutorList.cs" />

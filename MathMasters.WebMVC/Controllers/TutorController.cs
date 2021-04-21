@@ -34,12 +34,22 @@ namespace MathMasters.WebMVC.Controllers
             {
                 return View(model);
             }
+            var service = CreateTutorService();
+
+            if (service.CreateTutor(model))
+            {
+                TempData["SaveResult"] = "A tutor was added.";
+                return RedirectToAction("Index");
+            }
+            ModelState.AddModelError("", "A tutor could not be added.");
+            return View(model);
+        }
+
+        private TutorService CreateTutorService()
+        {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new TutorService(userId);
-
-            service.CreateTutor(model);
-
-            return RedirectToAction("Index");
+            return service;
         }
     }
 }

@@ -55,5 +55,39 @@ namespace MathMasters.Services
                 return query.ToArray();
             }
         }
+        //Get student by ID
+        public DetailStudent GetStudentById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                List<string> cList = new List<string>();
+                var entity =
+                    ctx
+                        .Students
+                        .Single(e => e.Id == id);
+                var entitySch =
+                    ctx
+                        .Schedules
+                        .Where(f => f.StudentId == id)
+                        .Select(f => f.StudentId).ToList();
+                if (entitySch != null)
+                {
+                    foreach (var student in entitySch)
+                    {
+                        //string name = Course.
+                        //cList.Add(Course.student);
+                    }
+                } 
+                return
+                    new DetailStudent
+                    {
+                        StudentId=entity.Id,
+                        StudentFirstName=entity.FirstName,
+                        StudentLastName=entity.LastName,
+                        StudentGradeLevel=entity.GradeLevel,
+
+                    };
+            }
+        }
     }
 }

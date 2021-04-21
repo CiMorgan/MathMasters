@@ -32,12 +32,22 @@ namespace MathMasters.WebMVC.Controllers
             {
                 return View(model);
             }
+            var service = CreateCourseService();
+
+            if (service.CreateCourse(model))
+            {
+                TempData["SaveResult"] = "A course was added.";
+                return RedirectToAction("Index");
+            }
+            ModelState.AddModelError("", "A course could not be added.");
+            return View(model);
+        }
+
+        private CourseService CreateCourseService()
+        {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new CourseService(userId);
-
-            service.CreateCourse(model);
-
-            return RedirectToAction("Index");
+            return service;
         }
     }
 }

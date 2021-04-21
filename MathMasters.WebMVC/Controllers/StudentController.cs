@@ -33,12 +33,29 @@ namespace MathMasters.WebMVC.Controllers
             {
                 return View(model);
             }
+            var service = CreateStudentService();
+
+            if (service.CreateStudent(model))
+            {
+                TempData["SaveResult"] = "A student was added.";
+                return RedirectToAction("Index");
+            }
+            ModelState.AddModelError("", "A student could not be added.");
+            return View(model);
+        }
+        public ActionResult Details(int id)
+        {
+            var svc = CreateStudentService();
+            var model = svc.GetStudentById(id);
+
+            return View(model);
+        }
+
+        private StudentService CreateStudentService()
+        {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new StudentService(userId);
-
-            service.CreateStudent(model);
-
-            return RedirectToAction("Index");
+            return service;
         }
     }
 }
