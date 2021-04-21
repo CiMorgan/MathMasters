@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MathMasters.Models;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +9,12 @@ namespace MathMasters.WebMVC.Controllers
 {
     public class ScheduleController : Controller
     {
+        [Authorize]
         // GET: Schedule
         public ActionResult Index()
         {
-            return View();
+            var model = new AllScheduleList[0];
+            return View(model);
         }
     }
 }

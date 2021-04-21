@@ -56,6 +56,10 @@
   <ItemGroup>
     <Compile Include="AllCourseList.cs" />
     <Compile Include="AllScheduleList.cs" />
+    <Compile Include="CreateCourse.cs" />
+    <Compile Include="CreateSchedule.cs" />
+    <Compile Include="CreateStudent.cs" />
+    <Compile Include="CreateTutor.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="AllStudentList.cs" />
     <Compile Include="AllTutorList.cs" />
