@@ -14,3 +14,6 @@ C:\Users\camor\OneDrive\Documents\Computer Science\ElevenFiftyProjects\RedBadge\
 C:\Users\camor\OneDrive\Documents\Computer Science\ElevenFiftyProjects\RedBadge\MathMasters\MathMasters.Models\bin\Debug\Microsoft.AspNet.Identity.Core.xml
 C:\Users\camor\OneDrive\Documents\Computer Science\ElevenFiftyProjects\RedBadge\MathMasters\MathMasters.Models\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
 C:\Users\camor\OneDrive\Documents\Computer Science\ElevenFiftyProjects\RedBadge\MathMasters\MathMasters.Models\obj\Debug\MathMasters.Models.csproj.CopyComplete
+C:\Users\camor\OneDrive\Documents\Computer Science\ElevenFiftyProjects\RedBadge\MathMasters\MathMasters.Models\bin\Debug\MathMasters.Data.dll
+C:\Users\camor\OneDrive\Documents\Computer Science\ElevenFiftyProjects\RedBadge\MathMasters\MathMasters.Models\bin\Debug\MathMasters.Data.pdb
+C:\Users\camor\OneDrive\Documents\Computer Science\ElevenFiftyProjects\RedBadge\MathMasters\MathMasters.Models\bin\Debug\MathMasters.Data.dll.config
