@@ -51,6 +51,21 @@ namespace MathMasters.WebMVC.Controllers
             return View(model);
         }
 
+        public ActionResult Edit(int id)
+        {
+            var service = CreateStudentService();
+            var detail = service.GetStudentById(id);
+            var model =
+                new EditStudent
+                {
+                    StudentId = detail.StudentId,
+                    StudentFirstName = detail.StudentFirstName,
+                    StudentLastName = detail.StudentLastName,
+                    StudentGradeLevel = detail.StudentGradeLevel
+                };
+            return View(model);
+        }
+
         private StudentService CreateStudentService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());

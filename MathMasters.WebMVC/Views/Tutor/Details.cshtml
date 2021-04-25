@@ -1,0 +1,42 @@
+﻿@model MathMasters.Models.DetailTutor
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Tutor Details</h2>
+
+<div>
+    <h4></h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TutorId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TutorId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TutorFirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TutorFirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TutorLastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TutorLastName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id = Model.TutorId}) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

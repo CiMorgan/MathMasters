@@ -56,6 +56,19 @@
   <ItemGroup>
     <Compile Include="Course.cs" />
     <Compile Include="IdentityModels.cs" />
+    <Compile Include="Migrations\202104202339455_InitialCreate.cs" />
+    <Compile Include="Migrations\202104202339455_InitialCreate.Designer.cs">
+      <DependentUpon>202104202339455_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104241920232_April24.cs" />
+    <Compile Include="Migrations\202104241920232_April24.Designer.cs">
+      <DependentUpon>202104241920232_April24.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202104241940054_April24v2.cs" />
+    <Compile Include="Migrations\202104241940054_April24v2.Designer.cs">
+      <DependentUpon>202104241940054_April24v2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Schedule.cs" />
     <Compile Include="Student.cs" />
@@ -64,6 +77,17 @@
   <ItemGroup>
     <None Include="App.config" />
     <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\202104202339455_InitialCreate.resx">
+      <DependentUpon>202104202339455_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104241920232_April24.resx">
+      <DependentUpon>202104241920232_April24.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202104241940054_April24v2.resx">
+      <DependentUpon>202104241940054_April24v2.cs</DependentUpon>
+    </EmbeddedResource>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -19,13 +19,13 @@ namespace MathMasters.Data
         [Display(Name = "Day and Time")]
         public DateTime Time { get; set; }
         [ForeignKey("Student")]
-        public int? StudentId { get; set; }
+        public int StudentId { get; set; }
         public virtual Student Student { get; set; }
         [ForeignKey("Tutor")]
-        public int? TutorId { get; set; }
+        public int TutorId { get; set; }
         public virtual Tutor Tutor { get; set; }
         [ForeignKey("Course")]
-        public int? CourseId { get; set; }
+        public int CourseId { get; set; }
         public virtual Course Course { get; set; }
     }
 }

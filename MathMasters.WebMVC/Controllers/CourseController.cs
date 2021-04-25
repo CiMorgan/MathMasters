@@ -42,7 +42,26 @@ namespace MathMasters.WebMVC.Controllers
             ModelState.AddModelError("", "A course could not be added.");
             return View(model);
         }
+        public ActionResult Details(int id)
+        {
+            var svc = CreateCourseService();
+            var model = svc.GetCourseById(id);
 
+            return View(model);
+        }
+        public ActionResult Edit(int id)
+        {
+            var service = CreateCourseService();
+            var detail = service.GetCourseById(id);
+            var model =
+                new EditCourse
+                {
+                    CourseId = detail.CourseId,
+                    CourseName = detail.CourseName,
+                    CourseDescription = detail.CourseDescription
+                };
+            return View(model);
+        }
         private CourseService CreateCourseService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());

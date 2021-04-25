@@ -14,3 +14,7 @@ C:\Users\camor\OneDrive\Documents\Computer Science\ElevenFiftyProjects\RedBadge\
 C:\Users\camor\OneDrive\Documents\Computer Science\ElevenFiftyProjects\RedBadge\MathMasters\MathMasters.Data\obj\Debug\MathMasters.Data.csproj.CopyComplete
 C:\Users\camor\OneDrive\Documents\Computer Science\ElevenFiftyProjects\RedBadge\MathMasters\MathMasters.Data\obj\Debug\MathMasters.Data.dll
 C:\Users\camor\OneDrive\Documents\Computer Science\ElevenFiftyProjects\RedBadge\MathMasters\MathMasters.Data\obj\Debug\MathMasters.Data.pdb
+C:\Users\camor\OneDrive\Documents\Computer Science\ElevenFiftyProjects\RedBadge\MathMasters\MathMasters.Data\obj\Debug\MathMasters.Data.Migrations.InitialCreate.resources
+C:\Users\camor\OneDrive\Documents\Computer Science\ElevenFiftyProjects\RedBadge\MathMasters\MathMasters.Data\obj\Debug\MathMasters.Data.csproj.GenerateResource.cache
+C:\Users\camor\OneDrive\Documents\Computer Science\ElevenFiftyProjects\RedBadge\MathMasters\MathMasters.Data\obj\Debug\MathMasters.Data.Migrations.April24.resources
+C:\Users\camor\OneDrive\Documents\Computer Science\ElevenFiftyProjects\RedBadge\MathMasters\MathMasters.Data\obj\Debug\MathMasters.Data.Migrations.April24v2.resources

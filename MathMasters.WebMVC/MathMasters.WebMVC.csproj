@@ -245,6 +245,9 @@
     <Content Include="Views\Student\Create.cshtml" />
     <Content Include="Views\Course\Create.cshtml" />
     <Content Include="Views\Tutor\Create.cshtml" />
+    <Content Include="Views\Tutor\Details.cshtml" />
+    <Content Include="Views\Student\Details.cshtml" />
+    <Content Include="Views\Course\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

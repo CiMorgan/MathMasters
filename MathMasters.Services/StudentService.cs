@@ -47,6 +47,7 @@ namespace MathMasters.Services
                             e =>
                                 new AllStudentList
                                 {
+                                    StudentId = e.Id,
                                     StudentName=e.LastName + "," + " "+ e.FirstName,
                                     StudentGradeLevel=e.GradeLevel
                                 }
@@ -65,28 +66,44 @@ namespace MathMasters.Services
                     ctx
                         .Students
                         .Single(e => e.Id == id);
-                var entitySch =
-                    ctx
-                        .Schedules
-                        .Where(f => f.StudentId == id)
-                        .Select(f => f.StudentId).ToList();
-                if (entitySch != null)
-                {
-                    foreach (var student in entitySch)
-                    {
-                        //string name = Course.
-                        //cList.Add(Course.student);
-                    }
-                } 
+                //var entitySch =
+                //    ctx
+                //        .Schedules
+                //        .Where(f => f.StudentId == id)
+                //        .Select(f => f.Id).ToList();
+                //if (entitySch != null)
+                //{
+                //    foreach (var schedule in entitySch)
+                //    {
+                //        //var courseName
+                //    }
+                //} 
                 return
                     new DetailStudent
                     {
                         StudentId=entity.Id,
                         StudentFirstName=entity.FirstName,
                         StudentLastName=entity.LastName,
-                        StudentGradeLevel=entity.GradeLevel,
+                        StudentGradeLevel=entity.GradeLevel
+                        //StudentCourseList=,
+                        //StudentTutorList
+                        //StudentScheduleList
 
                     };
+            }
+        }
+        public bool UpdateStudent(EditStudent model)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Students
+                        .Single(e => e.Id == model.StudentId);
+                entity.FirstName = model.StudentFirstName;
+                entity.LastName = model.StudentLastName;
+                entity.GradeLevel = model.StudentGradeLevel;
+                return ctx.SaveChanges() > 0;
             }
         }
     }
