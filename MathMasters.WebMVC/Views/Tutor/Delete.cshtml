@@ -1,0 +1,48 @@
+﻿@model MathMasters.Models.DetailTutor
+
+@{
+    ViewBag.Title = "Delete";
+}
+
+<h2>Delete</h2>
+
+<h3>Are you sure you want to delete this?</h3>
+<div>
+    <h4>DetailTutor</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TutorId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TutorId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TutorFirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TutorFirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TutorLastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TutorLastName)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Delete" class="btn btn-default" /> |
+            @Html.ActionLink("Back to List", "Index")
+        </div>
+    }
+</div>

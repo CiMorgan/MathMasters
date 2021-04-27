@@ -33,10 +33,8 @@ namespace MathMasters.Data
         [Required]
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
-        [Required]
         [Display(Name = "Available Times")]
         public List<ListOfTimes> Time { get; set; }
-        [Required]
         [Display(Name = "Location")]
         public ListOfLocations Location { get; set; }
         [Display(Name = "Courses")]

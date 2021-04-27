@@ -89,16 +89,29 @@ namespace MathMasters.Services
         }
         public bool UpdateCourse(EditCourse model)
         {
-            List<string> cList = new List<string>();
+            //List<string> cList = new List<string>();
             using (var ctx = new ApplicationDbContext())
             {
-
                 var entity =
                     ctx
                         .Courses
                         .Single(e => e.Id == model.CourseId);
                 entity.Name = model.CourseName;
                 entity.Description = model.CourseDescription;
+                return ctx.SaveChanges() > 0;
+            }
+        }
+        public bool DeleteCourse(int courseId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Courses
+                        .Single(e => e.Id == courseId);
+
+                ctx.Courses.Remove(entity);
+
                 return ctx.SaveChanges() > 0;
             }
         }

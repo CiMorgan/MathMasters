@@ -91,7 +91,7 @@ namespace MathMasters.Services
         }
         public bool UpdateTutor(EditTutor model)
         {
-            List<string> cList = new List<string>();
+            //List<string> cList = new List<string>();
             using (var ctx = new ApplicationDbContext())
             {
 
@@ -102,6 +102,20 @@ namespace MathMasters.Services
                 entity.FirstName = model.TutorFirstName;
                 entity.LastName = model.TutorLastName;
                 //entity.CourseList = model.TutorCourseList;
+                return ctx.SaveChanges() > 0;
+            }
+        }
+        public bool DeleteTutor(int tutorId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Tutors
+                        .Single(e => e.Id == tutorId);
+
+                ctx.Tutors.Remove(entity);
+
                 return ctx.SaveChanges() > 0;
             }
         }

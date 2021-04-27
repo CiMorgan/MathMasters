@@ -65,7 +65,50 @@ namespace MathMasters.WebMVC.Controllers
                 };
             return View(model);
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, EditStudent model)
+        {
+            if (!ModelState.IsValid) return View(model);
 
+            if (model.StudentId != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
+
+            var service = CreateStudentService();
+
+            if (service.UpdateStudent(model))
+            {
+                TempData["SaveResult"] = "The student was updated.";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "The student could not be updated.");
+            return View(model);
+        }
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var svc = CreateStudentService();
+            var model = svc.GetStudentById(id);
+
+            return View(model);
+        }
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteItem(int id)
+        {
+            var service = CreateStudentService();
+
+            service.DeleteStudent(id);
+
+            TempData["SaveResult"] = "The student was deleted";
+
+            return RedirectToAction("Index");
+        }
         private StudentService CreateStudentService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());

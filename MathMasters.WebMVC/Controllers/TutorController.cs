@@ -66,6 +66,50 @@ namespace MathMasters.WebMVC.Controllers
                 };
             return View(model);
         }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, EditTutor model)
+        {
+            if (!ModelState.IsValid) return View(model);
+
+            if (model.TutorId != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
+
+            var service = CreateTutorService();
+
+            if (service.UpdateTutor(model))
+            {
+                TempData["SaveResult"] = "The tutor was updated.";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "The tutor could not be updated.");
+            return View(model);
+        }
+        [ActionName("Delete")]
+        public ActionResult Delete(int id)
+        {
+            var svc = CreateTutorService();
+            var model = svc.GetTutorById(id);
+
+            return View(model);
+        }
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteItem(int id)
+        {
+            var service = CreateTutorService();
+
+            service.DeleteTutor(id);
+
+            TempData["SaveResult"] = "The tutor was deleted";
+
+            return RedirectToAction("Index");
+        }
         private TutorService CreateTutorService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());

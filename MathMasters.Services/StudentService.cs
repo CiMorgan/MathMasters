@@ -106,5 +106,19 @@ namespace MathMasters.Services
                 return ctx.SaveChanges() > 0;
             }
         }
+        public bool DeleteStudent(int studentId)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Students
+                        .Single(e => e.Id == studentId);
+
+                ctx.Students.Remove(entity);
+
+                return ctx.SaveChanges() >0 ;
+            }
+        }
     }
 }
