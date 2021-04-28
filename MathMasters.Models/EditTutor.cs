@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MathMasters.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -15,7 +16,9 @@ namespace MathMasters.Models
         public string TutorFirstName { get; set; }
         [Display(Name = "Last Name")]
         public string TutorLastName { get; set; }
-        [Display(Name = "Course List")]
-        public List<string> TutorCourseList { get; set; }
+        [Display(Name = "Location")]
+        public ListOfLocations Location { get; set; }
+        [Display(Name = "Available Times")]
+        public ListOfTimes TutorTimeList { get; set; }
     }
 }

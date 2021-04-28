@@ -10,7 +10,6 @@ namespace MathMasters.Data.Migrations
         public Configuration()
         {
             AutomaticMigrationsEnabled = false;
-            ContextKey = "MathMasters.Data.ApplicationDbContext";
         }
 
         protected override void Seed(MathMasters.Data.ApplicationDbContext context)

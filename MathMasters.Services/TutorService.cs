@@ -19,13 +19,13 @@ namespace MathMasters.Services
         //Create new tutor
         public bool CreateTutor(CreateTutor model)
         {
-            var newList = new List<ListOfTimes>(1) { model.TutorTime };
+
             var entity =
                 new Tutor()
                 {
                     FirstName = model.TutorFirstName,
                     LastName = model.TutorLastName,
-                    Time = newList,
+                    Time = model.TutorTime,
                     Location = model.TutorLocation
                 };
 
@@ -60,7 +60,6 @@ namespace MathMasters.Services
         {
             using (var ctx = new ApplicationDbContext())
             {
-                List<string> cList = new List<string>();
                 var entity =
                     ctx
                         .Tutors
@@ -77,12 +76,15 @@ namespace MathMasters.Services
                 //        //var courseName
                 //    }
                 //}
+
                 return
                     new DetailTutor
                     {
                         TutorId = entity.Id,
                         TutorFirstName = entity.FirstName,
                         TutorLastName = entity.LastName,
+                        Location = Enum.GetName(typeof(ListOfLocations), entity.Location),
+                        TimeList = Enum.GetName(typeof(ListOfTimes), entity.Time),
                         //TutorCourseList = 
                         //TutorStudentList =
                         //TutorScheduleList =
@@ -101,7 +103,7 @@ namespace MathMasters.Services
                         .Single(e => e.Id == model.TutorId);
                 entity.FirstName = model.TutorFirstName;
                 entity.LastName = model.TutorLastName;
-                //entity.CourseList = model.TutorCourseList;
+                entity.Location = 
                 return ctx.SaveChanges() > 0;
             }
         }

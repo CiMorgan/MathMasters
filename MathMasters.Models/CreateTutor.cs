@@ -13,12 +13,15 @@ namespace MathMasters.Models
         [Required]
         [Display(Name = "First Name")]
         public string TutorFirstName { get; set; }
+
         [Required]
         [Display(Name = "Last Name")]
         public string TutorLastName { get; set; }
+
         [Required]
         [Display(Name = "Available Times")]
         public ListOfTimes TutorTime { get; set; }
+
         [Required]
         [Display(Name = "Location")]
         public ListOfLocations TutorLocation { get; set; }

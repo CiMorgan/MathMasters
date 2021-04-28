@@ -7,13 +7,13 @@ namespace MathMasters.Data.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.1.0-30225")]
-    public sealed partial class April24v2 : IMigrationMetadata
+    public sealed partial class Apr27 : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(April24v2));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(Apr27));
         
         string IMigrationMetadata.Id
         {
-            get { return "202104241940054_April24v2"; }
+            get { return "202104280141434_Apr27"; }
         }
         
         string IMigrationMetadata.Source

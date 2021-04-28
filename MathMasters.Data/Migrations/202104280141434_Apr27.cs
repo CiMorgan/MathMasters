@@ -3,7 +3,7 @@ namespace MathMasters.Data.Migrations
     using System;
     using System.Data.Entity.Migrations;
     
-    public partial class InitialCreate : DbMigration
+    public partial class Apr27 : DbMigration
     {
         public override void Up()
         {
@@ -24,6 +24,7 @@ namespace MathMasters.Data.Migrations
                         Id = c.Int(nullable: false, identity: true),
                         FirstName = c.String(nullable: false),
                         LastName = c.String(nullable: false),
+                        Time = c.Int(nullable: false),
                         Location = c.Int(nullable: false),
                     })
                 .PrimaryKey(t => t.Id);
