@@ -20,8 +20,8 @@ namespace MathMasters.Models
         [Display(Name  = "Location")]
         public string Location { get; set; }
 
-        [Display(Name = "Available Time")]
-        public string TimeList { get; set; }
+        //[Display(Name = "Available Time")]
+        //public string TimeList { get; set; }
 
         [Display(Name = "Course List")]
         public List<string> TutorCourseList { get; set; }

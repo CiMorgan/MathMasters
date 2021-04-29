@@ -15,8 +15,12 @@ namespace MathMasters.Models
         [Display(Name = "Course")]
         public string ScheduleCourse { get; set; }
 
-        [Display(Name = "Location")]
-        public ListOfLocations ScheduleLocation { get; set; }
+        [Display(Name = "Student")]
+        public string ScheduleStudent { get; set; }
+
+        //[Display(Name = "Location")]
+        //public ListOfLocations ScheduleLocation { get; set; }
+
         [Display(Name = "Time and Date")]
         public DateTime ScheduleDate { get; set; }
     }

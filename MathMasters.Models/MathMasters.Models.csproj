@@ -58,6 +58,7 @@
     <Compile Include="AllScheduleList.cs" />
     <Compile Include="CreateCourse.cs" />
     <Compile Include="CreateSchedule.cs" />
+    <Compile Include="CreateScheduleGetLocation.cs" />
     <Compile Include="CreateStudent.cs" />
     <Compile Include="CreateTutor.cs" />
     <Compile Include="DetailCourse.cs" />

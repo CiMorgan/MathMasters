@@ -18,9 +18,9 @@ namespace MathMasters.Models
         [Display(Name = "Last Name")]
         public string TutorLastName { get; set; }
 
-        [Required]
-        [Display(Name = "Available Times")]
-        public ListOfTimes TutorTime { get; set; }
+        //[Required]
+        //[Display(Name = "Available Times")]
+        //public ListOfTimes TutorTime { get; set; }
 
         [Required]
         [Display(Name = "Location")]

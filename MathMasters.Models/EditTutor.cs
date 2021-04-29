@@ -16,9 +16,11 @@ namespace MathMasters.Models
         public string TutorFirstName { get; set; }
         [Display(Name = "Last Name")]
         public string TutorLastName { get; set; }
+
         [Display(Name = "Location")]
         public ListOfLocations Location { get; set; }
-        [Display(Name = "Available Times")]
-        public ListOfTimes TutorTimeList { get; set; }
+
+        //[Display(Name = "Available Times")]
+        //public ListOfTimes TutorTimeList { get; set; }
     }
 }

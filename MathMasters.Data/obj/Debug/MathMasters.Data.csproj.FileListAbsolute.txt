@@ -16,3 +16,4 @@ C:\Users\camor\OneDrive\Documents\Computer Science\ElevenFiftyProjects\RedBadge\
 C:\Users\camor\OneDrive\Documents\Computer Science\ElevenFiftyProjects\RedBadge\MathMasters\MathMasters.Data\obj\Debug\MathMasters.Data.pdb
 C:\Users\camor\OneDrive\Documents\Computer Science\ElevenFiftyProjects\RedBadge\MathMasters\MathMasters.Data\obj\Debug\MathMasters.Data.Migrations.Apr27.resources
 C:\Users\camor\OneDrive\Documents\Computer Science\ElevenFiftyProjects\RedBadge\MathMasters\MathMasters.Data\obj\Debug\MathMasters.Data.csproj.GenerateResource.cache
+C:\Users\camor\OneDrive\Documents\Computer Science\ElevenFiftyProjects\RedBadge\MathMasters\MathMasters.Data\obj\Debug\MathMasters.Data.Migrations.Apr28v1.resources

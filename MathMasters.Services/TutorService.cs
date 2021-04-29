@@ -25,7 +25,7 @@ namespace MathMasters.Services
                 {
                     FirstName = model.TutorFirstName,
                     LastName = model.TutorLastName,
-                    Time = model.TutorTime,
+                    //Time = model.TutorTime,
                     Location = model.TutorLocation
                 };
 
@@ -84,13 +84,14 @@ namespace MathMasters.Services
                         TutorFirstName = entity.FirstName,
                         TutorLastName = entity.LastName,
                         Location = Enum.GetName(typeof(ListOfLocations), entity.Location),
-                        TimeList = Enum.GetName(typeof(ListOfTimes), entity.Time),
+                        //TimeList = Enum.GetName(typeof(ListOfTimes), entity.Time),
                         //TutorCourseList = 
                         //TutorStudentList =
                         //TutorScheduleList =
                     };
             }
         }
+
         public bool UpdateTutor(EditTutor model)
         {
             //List<string> cList = new List<string>();
@@ -103,7 +104,7 @@ namespace MathMasters.Services
                         .Single(e => e.Id == model.TutorId);
                 entity.FirstName = model.TutorFirstName;
                 entity.LastName = model.TutorLastName;
-                entity.Location = 
+                entity.Location = model.Location; 
                 return ctx.SaveChanges() > 0;
             }
         }

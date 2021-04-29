@@ -36,9 +36,9 @@ namespace MathMasters.Data
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
 
-        [Required]
-        [Display(Name = "Available Time")]
-        public ListOfTimes Time { get; set; }
+        //[Required]
+        //[Display(Name = "Available Time")]
+        //public ListOfTimes Time { get; set; }
 
         [Required]
         [Display(Name = "Location")]
