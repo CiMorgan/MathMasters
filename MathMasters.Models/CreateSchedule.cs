@@ -5,9 +5,11 @@ using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Web.Mvc;
 
 namespace MathMasters.Models
 {
+
     public class CreateSchedule
     {
         [Required]
@@ -26,7 +28,11 @@ namespace MathMasters.Models
         [Display(Name = "Course")]
         public int ScheduleCourseID { get; set; }
 
-        [Required]
+
+        [Display(Name = "Day")]
+        public string ScheduleDay { get; set; }
+
+
         [Display(Name = "Date")]
         public DateTime ScheduleDate { get; set; }
 
@@ -34,5 +40,6 @@ namespace MathMasters.Models
         [Display(Name = "Rate per hour")]
         public Double ScheduleRate { get; set; }
 
+        public IEnumerable<SelectListItem> AvailableDays { get; set; }
     }
 }

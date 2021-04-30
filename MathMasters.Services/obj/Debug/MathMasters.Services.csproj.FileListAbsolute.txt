@@ -20,3 +20,14 @@ C:\Users\camor\OneDrive\Documents\Computer Science\ElevenFiftyProjects\RedBadge\
 C:\Users\camor\OneDrive\Documents\Computer Science\ElevenFiftyProjects\RedBadge\MathMasters\MathMasters.Services\bin\Debug\MathMasters.Data.dll.config
 C:\Users\camor\OneDrive\Documents\Computer Science\ElevenFiftyProjects\RedBadge\MathMasters\MathMasters.Services\bin\Debug\MathMasters.Models.pdb
 C:\Users\camor\OneDrive\Documents\Computer Science\ElevenFiftyProjects\RedBadge\MathMasters\MathMasters.Services\bin\Debug\MathMasters.Models.dll.config
+C:\Users\camor\OneDrive\Documents\Computer Science\ElevenFiftyProjects\RedBadge\MathMasters\MathMasters.Services\bin\Debug\System.Web.Mvc.dll
+C:\Users\camor\OneDrive\Documents\Computer Science\ElevenFiftyProjects\RedBadge\MathMasters\MathMasters.Services\bin\Debug\System.Web.WebPages.dll
+C:\Users\camor\OneDrive\Documents\Computer Science\ElevenFiftyProjects\RedBadge\MathMasters\MathMasters.Services\bin\Debug\System.Web.WebPages.Razor.dll
+C:\Users\camor\OneDrive\Documents\Computer Science\ElevenFiftyProjects\RedBadge\MathMasters\MathMasters.Services\bin\Debug\System.Web.Razor.dll
+C:\Users\camor\OneDrive\Documents\Computer Science\ElevenFiftyProjects\RedBadge\MathMasters\MathMasters.Services\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\camor\OneDrive\Documents\Computer Science\ElevenFiftyProjects\RedBadge\MathMasters\MathMasters.Services\bin\Debug\System.Web.WebPages.Deployment.dll
+C:\Users\camor\OneDrive\Documents\Computer Science\ElevenFiftyProjects\RedBadge\MathMasters\MathMasters.Services\bin\Debug\System.Web.Mvc.xml
+C:\Users\camor\OneDrive\Documents\Computer Science\ElevenFiftyProjects\RedBadge\MathMasters\MathMasters.Services\bin\Debug\System.Web.WebPages.xml
+C:\Users\camor\OneDrive\Documents\Computer Science\ElevenFiftyProjects\RedBadge\MathMasters\MathMasters.Services\bin\Debug\System.Web.WebPages.Razor.xml
+C:\Users\camor\OneDrive\Documents\Computer Science\ElevenFiftyProjects\RedBadge\MathMasters\MathMasters.Services\bin\Debug\System.Web.Razor.xml
+C:\Users\camor\OneDrive\Documents\Computer Science\ElevenFiftyProjects\RedBadge\MathMasters\MathMasters.Services\bin\Debug\System.Web.WebPages.Deployment.xml

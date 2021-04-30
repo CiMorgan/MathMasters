@@ -38,8 +38,10 @@ namespace MathMasters.Services
             }
         }
         //Create new schedule
-        public bool CreateSchedule(List<Tutor> tutorList, CreateSchedule model)
+
+        public bool CreateSchedule(CreateSchedule model)
         {
+            var tutorList = GetTutorByLocation(model.ScheduleLocation);
             model.ScheduleRate = 20;
             var entity =
                 new Schedule()

@@ -251,7 +251,7 @@
     <Content Include="Views\Course\Delete.cshtml" />
     <Content Include="Views\Tutor\Delete.cshtml" />
     <Content Include="Views\Student\Delete.cshtml" />
-    <Content Include="Views\Schedule\CreateGetLocation.cshtml" />
+    <Content Include="Views\Schedule\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
