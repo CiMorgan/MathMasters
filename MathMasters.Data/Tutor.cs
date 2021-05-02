@@ -10,12 +10,12 @@ namespace MathMasters.Data
 {
     public enum ListOfTimes
     {
-        MonWed1530,
-        MonWed1730,
-        TuesThurs1530,
-        TuesThurs1730,
-        Sat1100,
-        Sat1300
+        MonWed1500,
+        MonWed1700,
+        TuesThurs1500,
+        TuesThurs1700,
+        Sat1300,
+        Sat1500
     }
 
     public enum ListOfLocations
@@ -35,10 +35,6 @@ namespace MathMasters.Data
         [Required]
         [Display(Name = "Last Name")]
         public string LastName { get; set; }
-
-        //[Required]
-        //[Display(Name = "Available Time")]
-        //public ListOfTimes Time { get; set; }
 
         [Required]
         [Display(Name = "Location")]

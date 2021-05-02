@@ -1,0 +1,95 @@
+﻿
+
+@{
+    ViewBag.Title = "Location";
+}
+
+<h2>Please select a location. </h2>
+<h2></h2>
+<table class="table">
+    <tr>
+        <th>
+            Location
+        </th>
+        <th>
+            Address
+        </th>
+        <th>
+            Select this location
+        </th>
+        <th></th>
+    </tr>
+    <tr>
+        <td>
+            Library
+        </td>
+        <td>
+            1998 Space Station Way
+        </td>
+        <td>
+            @Html.ActionLink("Select the library", "CreateLibrary")
+        </td>
+    </tr>
+    <tr>
+        <td>
+            Community Center
+        </td>
+        <td>
+            1571 Lepanto Drive
+        </td>
+        <td>
+            @Html.ActionLink("Select the community center", "CreateCenter")
+        </td>
+    </tr>
+    <tr>
+        <td>
+            School
+        </td>
+        <td>
+            1971 Steve Cook Crossing
+        </td>
+        <td>
+            @Html.ActionLink("Select the school", "CreateSchool")
+        </td>
+    </tr>
+</table>
+
+
+<div style="display: flex">
+    <div style="margin: 10px; border-style: solid; border-width: 3px; border-color: blue">
+        <div style="padding: 10px">
+            <img src="~/Images/Library.jpg" alt="Town Library" width="300" height="200" style="display: block; margin-left: auto; margin-right: auto">
+            <div>
+                <h4>Library</h4>
+                <p>This card has supporting text below as a natural lead-in to additional content.</p>
+            </div>
+            <div>
+                <small class="text-muted">Hayden Library (libraries.mit.edu)</small>
+            </div>
+        </div>
+    </div>
+    <div style="margin: 10px; border-style: solid; border-width: 3px; border-color: blue">
+        <div style="padding: 10px">
+            <img src="~/Images/CommunityCenter.jpg" alt="Town Library" width="300" height="200" style="display: block; margin-left: auto; margin-right: auto">
+            <div>
+                <h4>Community Center</h4>
+                <p>This card has supporting text below as a natural lead-in to additional content.</p>
+            </div>
+            <div>
+                <small class="text-muted">Stephen Hawking Centre, Perimeter Institute for Theoretical Physics (mbii.com)</small>
+            </div>
+        </div>
+    </div>
+    <div style="margin: 10px; border-style: solid; border-width: 3px; border-color: blue">
+        <div style="padding: 10px">
+            <img src="~/Images/School.jpg" alt="Town School" width="300" height="200" style="display: block; margin-left: auto; margin-right: auto">
+            <div>
+                <h4>School</h4>
+                <p>This card has supporting text below as a natural lead-in to additional content.</p>
+            </div>
+            <div>
+                <small class="text-muted">Cavendish Building, Cambridge (commons.wikimedia.org)</small>
+            </div>
+        </div>
+    </div>
+</div>

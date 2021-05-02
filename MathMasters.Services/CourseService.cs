@@ -24,8 +24,7 @@ namespace MathMasters.Services
                 new Course()
                 {
                     Name = model.CourseName,
-                    Description = model.CourseDescription,
-                    Time = newList
+                    Description = model.CourseDescription
                 };
 
             using (var ctx = new ApplicationDbContext())

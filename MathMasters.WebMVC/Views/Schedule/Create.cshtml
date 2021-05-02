@@ -4,7 +4,7 @@
     ViewBag.Title = "Create";
 }
 
-<h2>Create</h2>
+<h2>Create a tutoring session</h2>
 
 
 @using (Html.BeginForm())
@@ -24,17 +24,9 @@
         </div>
 
         <div class="form-group">
-            @Html.LabelFor(model => model.ScheduleLocation, htmlAttributes: new { @class = "control-label col-md-2" })
-            <div class="col-md-10">
-                @Html.EnumDropDownListFor(model => model.ScheduleLocation, new { htmlAttributes = new { @class = "form-control" } })
-                @Html.ValidationMessageFor(model => model.ScheduleLocation, "", new { @class = "text-danger" })
-            </div>
-        </div>
-
-        <div class="form-group">
             @Html.LabelFor(model => model.ScheduleTutorID, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
-                @Html.EditorFor(model => model.ScheduleTutorID, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.DropDownListFor(model => model.ScheduleTutorID, Model.AvailableTutors, "Available tutors at this location", new { htmlAttributes = new { @class = "form-control" } })
                 @Html.ValidationMessageFor(model => model.ScheduleTutorID, "", new { @class = "text-danger" })
             </div>
         </div>
@@ -67,8 +59,7 @@
                 
             </div>
         </div>
-
-            @*<div class="form-group">
+        @*<div class="form-group">
             @Html.LabelFor(model => model.ScheduleRate, htmlAttributes: new { @class = "control-label col-md-2" })
             <div class="col-md-10">
                 @Html.EditorFor(model => model.ScheduleRate, new { htmlAttributes = new { @class = "form-control" } })
@@ -85,11 +76,11 @@
 }
 
 <div>
-    @Html.ActionLink("Back to List", "Index")
+    @Html.ActionLink("Back to Location Selection", "Index")
 </div>
 
 @section Scripts {
-<script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
+    <script src="~/Scripts/jquery-ui-1.12.1.min.js"></script>
     <script>
         $(document).ready(function () {
             $(".datepicker").datepicker({
@@ -101,5 +92,5 @@
     </script>
     @Scripts.Render("~/bundles/jqueryval")
     @Scripts.Render("~/bundles/bootstrap")
-    
+
 }

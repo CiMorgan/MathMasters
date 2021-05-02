@@ -29,7 +29,7 @@ namespace MathMasters.Services
                                 {
                                     ScheduleId = e.Id,
                                     ScheduleCourse = e.Course.Name,
-                                    ScheduleStudent = e.Student.LastName + ", " + e.Student.FirstName,
+                                    ScheduleTutor=e.Tutor.LastName,
                                     ScheduleDate = e.Time
                                 }
                         );
@@ -37,19 +37,41 @@ namespace MathMasters.Services
                 return query.ToArray();
             }
         }
-        //Create new schedule
-
+        //Create a new tutoring session. Location selected first to allow selection of tutors from that location only.
+        //public void CreateLibrary(CreateSchedule model)
+        //{
+        //    CreateSchedule(model);
+        //}
+        //public void CreateCenter(CreateSchedule model)
+        //{
+        //    CreateSchedule(model);
+        //}
+        //public void CreateSchool(CreateSchedule model)
+        //{
+        //    CreateSchedule(model);
+        //}
         public bool CreateSchedule(CreateSchedule model)
         {
-            var tutorList = GetTutorByLocation(model.ScheduleLocation);
+            int position = model.ScheduleTutorID.IndexOf("-");
+            int tutorNum = Int32.Parse(model.ScheduleTutorID.Substring(0, position));
+            int DaySelPos = model.ScheduleDay.IndexOf(":");
+            string DaySel = model.ScheduleDay.Substring(DaySelPos - 1);
+            int hour = 3;
+
+            if (DaySel == "3:00") { hour = 3; };
+            if (DaySel == "5:00") { hour = 5; };
+            if (DaySel == "1:00") { hour = 1; };
+
+            DateTime sch = new DateTime(model.ScheduleDate.Year, model.ScheduleDate.Month, model.ScheduleDate.Day, hour, 0, 0);
+
             model.ScheduleRate = 20;
             var entity =
                 new Schedule()
                 {
                     StudentId = model.ScheduleStudentID,
-                    TutorId = model.ScheduleTutorID,
+                    TutorId = tutorNum,
                     CourseId = model.ScheduleCourseID,
-                    Time = model.ScheduleDate,
+                    Time = sch,
                     Rate = model.ScheduleRate
                 };
 
@@ -60,39 +82,8 @@ namespace MathMasters.Services
             }
         }
 
-        //Get All tutors
+        //Get All Schedules
 
-        public List<Tutor> GetTutorByLocation(ListOfLocations location)
-        {
-            var tList = new List<Tutor>();
-            using (var ctx = new ApplicationDbContext())
-            {
-                var entity =
-                    ctx
-                        .Tutors
-                        .Where(e => e.Location == location);
 
-                        foreach (Tutor tutor in entity)
-                        {
-                            tList.Add(tutor);
-                        }
-                    return tList;
-            }
-        }
-        public List<Course> AllCourses()
-        {
-            var cList = new List<Course>();
-            using (var ctx = new ApplicationDbContext())
-            {
-                var query =
-                    ctx
-                        .Courses;
-                foreach (Course course in query)
-                {
-                    cList.Add(course);
-                }
-                return cList;
-            }
-        }
     }
 }

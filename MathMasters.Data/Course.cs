@@ -16,8 +16,6 @@ namespace MathMasters.Data
         public string Name { get; set; }
         [Display(Name = "Course Description")]
         public string Description { get; set; }
-        [Display(Name = "Available Times")]
-        public List<ListOfTimes> Time { get; set; }
         [Display(Name = "Courses")]
         public virtual ICollection<Tutor> TutorList { get; set; }
     }

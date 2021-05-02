@@ -25,7 +25,7 @@ namespace MathMasters.WebMVC.Controllers
             return View();
         }
         [HttpPost]
-        [ValidateAntiForgeryToken]
+        [ValidateAntiForgeryToken] 
         public ActionResult Create(CreateCourse model)
         {
             if (!ModelState.IsValid)

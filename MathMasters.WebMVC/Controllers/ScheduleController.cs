@@ -22,32 +22,83 @@ namespace MathMasters.WebMVC.Controllers
             return View(model);
         }
 
-        //public ActionResult SelectTimes()
+        public ActionResult Location()
+        {
+            return View();
+        }
+
+        //public ActionResult CreateLibrary(CreateSchedule model)
         //{
-        //    List<SelectListItem> availableTimes = new List<SelectListItem>();
-        //    availableTimes.Add(new SelectListItem { Text = "Monday at 3:30", Value = "0" });
-        //    availableTimes.Add(new SelectListItem { Text = "Monday at 5:30", Value = "1" });
-        //    availableTimes.Add(new SelectListItem { Text = "Wednesday at 3:30", Value = "2" });
-        //    availableTimes.Add(new SelectListItem { Text = "Wednesday at 5:30", Value = "3" });
-        //    availableTimes.Add(new SelectListItem { Text = "Saturday at 11:00", Value = "4" });
-        //    availableTimes.Add(new SelectListItem { Text = "Saturday at 1:00", Value = "5" });
-        //    ViewBag.Create = availableTimes;
+        //    var tutors = GetTutorByLocation(ListOfLocations.School);
+        //    View();
+        //    return Create(tutors, model);
+        //}
+        //public ActionResult CreateCenter(CreateSchedule model)
+        //{
+        //    var tutors = GetTutorByLocation(ListOfLocations.CommunityCenter);
+        //    View();
+        //    return Create(tutors, model);
+        //}
+        //public ActionResult CreateSchool(CreateSchedule model)
+        //{
+        //    var tutors = GetTutorByLocation(ListOfLocations.School);
+        //    View();
+        //    return Create(tutors, model);
+        //}
+
+        //public ActionResult CreateLibrary()
+        //{
         //    return View();
         //}
-        public ActionResult Create()
+        //public ActionResult CreateLibrary()
+        //{
+
+        //}
+        public ActionResult CreateLibrary(CreateSchedule model)
         {
+            View();
             var times = GetAllTimes();
-            var model = new CreateSchedule();
+            var tutors = GetTutorByLocation(ListOfLocations.Library);
+            var tList = GetLocationsTutors(tutors);
             model.AvailableDays = TimesSelectListItems(times);
+            model.AvailableTutors = LocationTutorListItems(tList);
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            var service = CreateScheduleService();
+
+            if (service.CreateSchedule(model))
+            {
+                TempData["SaveResult"] = "A new schedule was added.";
+                return RedirectToAction("Index");
+            }
+            ModelState.AddModelError("", "A schedule could not be added.");
             return View(model);
+        }
+        public ActionResult CreateCenter(CreateSchedule model)
+        {
+            ListOfLocations local = ListOfLocations.CommunityCenter;
+            Create(local, model);
+            return View();
+        }
+        public ActionResult CreateSchool(CreateSchedule model)
+        {
+            ListOfLocations local = ListOfLocations.School;
+            Create(local, model); 
+            return View();
         }
 
         [HttpPost]
         [ValidateAntiForgeryToken]
-        public ActionResult Create(CreateSchedule model)
+
+        public ActionResult Create(ListOfLocations location, CreateSchedule model)
         {
             var times = GetAllTimes();
+            var tutors = GetTutorByLocation(location);
+            var tList = GetLocationsTutors(tutors);
             model.AvailableDays = TimesSelectListItems(times);
+            model.AvailableTutors = LocationTutorListItems(tList);
             if (!ModelState.IsValid)
             {
                 return View(model);
@@ -72,12 +123,12 @@ namespace MathMasters.WebMVC.Controllers
         {
             return new List<string>
             {
-                "Monday at 3:30",
-                "Monday at 5:30",
-                "Wednesday at 3:30",
-                "Wednesday at 5:30",
-                "Saturday at 11:00",
-                "Saturday at 1:00"
+                "Monday at 3:00",
+                "Monday at 5:00",
+                "Wednesday at 3:00",
+                "Wednesday at 5:00",
+                "Saturday at 1:00",
+                "Saturday at 3:00"
             };
         }
         private IEnumerable<SelectListItem> TimesSelectListItems(IEnumerable<string> times)
@@ -92,6 +143,45 @@ namespace MathMasters.WebMVC.Controllers
                 });
             }
             return timesList;
+        }
+        public List<Tutor> GetTutorByLocation(ListOfLocations location)
+        {
+            var tList = new List<Tutor>();
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Tutors
+                        .Where(e => e.Location == location);
+
+                foreach (Tutor tutor in entity)
+                {
+                    tList.Add(tutor);
+                }
+                return tList;
+            }
+        }
+        private IEnumerable<string> GetLocationsTutors(List<Tutor> locationTutors)
+        {
+            var tList = new List<string>();
+            foreach (var tutor in locationTutors)
+            {
+                tList.Add(tutor.Id+"-"+tutor.LastName + ", " + tutor.FirstName);
+            }
+            return tList;
+        }
+        private IEnumerable<SelectListItem> LocationTutorListItems(IEnumerable<string> localTutors)
+        {
+            var tutorList = new List<SelectListItem>();
+            foreach (var tutor in localTutors)
+            {
+                tutorList.Add(new SelectListItem
+                {
+                    Value = tutor,
+                    Text = tutor
+                });
+            }
+            return tutorList;
         }
     }
 }

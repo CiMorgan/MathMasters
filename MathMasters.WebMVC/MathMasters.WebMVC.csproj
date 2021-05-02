@@ -380,9 +380,8 @@
     <Content Include="Views\Student\Index.cshtml" />
     <Content Include="Views\Tutor\Index.cshtml" />
     <Content Include="Views\Course\Index.cshtml" />
-    <Content Include="Views\Schedule\Index.cshtml" />
+    <Content Include="Views\Schedule\Location.cshtml" />
     <Content Include="Views\Student\Create.cshtml" />
-    <Content Include="Views\Course\Create.cshtml" />
     <Content Include="Views\Student\Details.cshtml" />
     <Content Include="Views\Course\Details.cshtml" />
     <Content Include="Views\Course\Edit.cshtml" />
@@ -391,7 +390,8 @@
     <Content Include="Views\Tutor\Delete.cshtml" />
     <Content Include="Views\Student\Delete.cshtml" />
     <Content Include="Views\Schedule\Create.cshtml" />
-    <Content Include="Views\Schedule\Index - Original.cshtml" />
+    <Content Include="Views\Schedule\CreateLibrary.cshtml" />
+    <None Include="Views\Schedule\Index.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
     <Content Include="Scripts\umd\popper.js.flow" />
@@ -402,6 +402,8 @@
     <Content Include="Scripts\popper.js.map" />
     <Content Include="Scripts\popper-utils.min.js.map" />
     <Content Include="Scripts\popper-utils.js.map" />
+    <Content Include="Views\Course\Create.cshtml" />
+    <Content Include="Views\Tutor\Create.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

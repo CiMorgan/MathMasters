@@ -25,7 +25,6 @@ namespace MathMasters.Services
                 {
                     FirstName = model.TutorFirstName,
                     LastName = model.TutorLastName,
-                    //Time = model.TutorTime,
                     Location = model.TutorLocation
                 };
 
