@@ -30,7 +30,7 @@ namespace MathMasters.Services
             using (var ctx = new ApplicationDbContext())
             {
                 ctx.Courses.Add(entity);
-                return ctx.SaveChanges() > 1;
+                return ctx.SaveChanges() > 0;
             }
         }
         //Get All Courses

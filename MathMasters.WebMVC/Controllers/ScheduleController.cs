@@ -54,6 +54,7 @@ namespace MathMasters.WebMVC.Controllers
         //{
 
         //}
+
         public ActionResult CreateLibrary(CreateSchedule model)
         {
             View();
@@ -76,26 +77,12 @@ namespace MathMasters.WebMVC.Controllers
             ModelState.AddModelError("", "A schedule could not be added.");
             return View(model);
         }
+
         public ActionResult CreateCenter(CreateSchedule model)
         {
-            ListOfLocations local = ListOfLocations.CommunityCenter;
-            Create(local, model);
-            return View();
-        }
-        public ActionResult CreateSchool(CreateSchedule model)
-        {
-            ListOfLocations local = ListOfLocations.School;
-            Create(local, model); 
-            return View();
-        }
-
-        [HttpPost]
-        [ValidateAntiForgeryToken]
-
-        public ActionResult Create(ListOfLocations location, CreateSchedule model)
-        {
+            View();
             var times = GetAllTimes();
-            var tutors = GetTutorByLocation(location);
+            var tutors = GetTutorByLocation(ListOfLocations.CommunityCenter);
             var tList = GetLocationsTutors(tutors);
             model.AvailableDays = TimesSelectListItems(times);
             model.AvailableTutors = LocationTutorListItems(tList);
@@ -113,6 +100,54 @@ namespace MathMasters.WebMVC.Controllers
             ModelState.AddModelError("", "A schedule could not be added.");
             return View(model);
         }
+
+        public ActionResult CreateSchool(CreateSchedule model)
+        {
+            View();
+            var times = GetAllTimes();
+            var tutors = GetTutorByLocation(ListOfLocations.School);
+            var tList = GetLocationsTutors(tutors);
+            model.AvailableDays = TimesSelectListItems(times);
+            model.AvailableTutors = LocationTutorListItems(tList);
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            var service = CreateScheduleService();
+
+            if (service.CreateSchedule(model))
+            {
+                TempData["SaveResult"] = "A new schedule was added.";
+                return RedirectToAction("Index");
+            }
+            ModelState.AddModelError("", "A schedule could not be added.");
+            return View(model);
+        }
+
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+
+        //public ActionResult Create(ListOfLocations location, CreateSchedule model)
+        //{
+        //    var times = GetAllTimes();
+        //    var tutors = GetTutorByLocation(location);
+        //    var tList = GetLocationsTutors(tutors);
+        //    model.AvailableDays = TimesSelectListItems(times);
+        //    model.AvailableTutors = LocationTutorListItems(tList);
+        //    if (!ModelState.IsValid)
+        //    {
+        //        return View(model);
+        //    }
+        //    var service = CreateScheduleService();
+
+        //    if (service.CreateSchedule(model))
+        //    {
+        //        TempData["SaveResult"] = "A new schedule was added.";
+        //        return RedirectToAction("Index");
+        //    }
+        //    ModelState.AddModelError("", "A schedule could not be added.");
+        //    return View(model);
+        //}
         private ScheduleService CreateScheduleService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
