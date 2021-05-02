@@ -26,89 +26,17 @@ namespace MathMasters.WebMVC.Controllers
         {
             return View();
         }
-
-        //public ActionResult CreateLibrary(CreateSchedule model)
-        //{
-        //    var tutors = GetTutorByLocation(ListOfLocations.School);
-        //    View();
-        //    return Create(tutors, model);
-        //}
-        //public ActionResult CreateCenter(CreateSchedule model)
-        //{
-        //    var tutors = GetTutorByLocation(ListOfLocations.CommunityCenter);
-        //    View();
-        //    return Create(tutors, model);
-        //}
-        //public ActionResult CreateSchool(CreateSchedule model)
-        //{
-        //    var tutors = GetTutorByLocation(ListOfLocations.School);
-        //    View();
-        //    return Create(tutors, model);
-        //}
-
-        //public ActionResult CreateLibrary()
-        //{
-        //    return View();
-        //}
-        //public ActionResult CreateLibrary()
-        //{
-
-        //}
-
         public ActionResult CreateLibrary(CreateSchedule model)
         {
             View();
             var times = GetAllTimes();
-            var tutors = GetTutorByLocation(ListOfLocations.Library);
-            var tList = GetLocationsTutors(tutors);
-            model.AvailableDays = TimesSelectListItems(times);
-            model.AvailableTutors = LocationTutorListItems(tList);
-            if (!ModelState.IsValid)
-            {
-                return View(model);
-            }
-            var service = CreateScheduleService();
-
-            if (service.CreateSchedule(model))
-            {
-                TempData["SaveResult"] = "A new schedule was added.";
-                return RedirectToAction("Index");
-            }
-            ModelState.AddModelError("", "A schedule could not be added.");
-            return View(model);
-        }
-
-        public ActionResult CreateCenter(CreateSchedule model)
-        {
-            View();
-            var times = GetAllTimes();
-            var tutors = GetTutorByLocation(ListOfLocations.CommunityCenter);
-            var tList = GetLocationsTutors(tutors);
-            model.AvailableDays = TimesSelectListItems(times);
-            model.AvailableTutors = LocationTutorListItems(tList);
-            if (!ModelState.IsValid)
-            {
-                return View(model);
-            }
-            var service = CreateScheduleService();
-
-            if (service.CreateSchedule(model))
-            {
-                TempData["SaveResult"] = "A new schedule was added.";
-                return RedirectToAction("Index");
-            }
-            ModelState.AddModelError("", "A schedule could not be added.");
-            return View(model);
-        }
-
-        public ActionResult CreateSchool(CreateSchedule model)
-        {
-            View();
-            var times = GetAllTimes();
+            var courses = GetAllCourses();
+            var cList = GetCourses(courses);
             var tutors = GetTutorByLocation(ListOfLocations.School);
             var tList = GetLocationsTutors(tutors);
             model.AvailableDays = TimesSelectListItems(times);
             model.AvailableTutors = LocationTutorListItems(tList);
+            model.AvailableCourses = CourseListItems(cList);
             if (!ModelState.IsValid)
             {
                 return View(model);
@@ -123,37 +51,72 @@ namespace MathMasters.WebMVC.Controllers
             ModelState.AddModelError("", "A schedule could not be added.");
             return View(model);
         }
+        public ActionResult CreateCenter(CreateSchedule model)
+        {
+            View();
+            var times = GetAllTimes();
+            var courses = GetAllCourses();
+            var cList = GetCourses(courses);
+            var tutors = GetTutorByLocation(ListOfLocations.School);
+            var tList = GetLocationsTutors(tutors);
+            model.AvailableDays = TimesSelectListItems(times);
+            model.AvailableTutors = LocationTutorListItems(tList);
+            model.AvailableCourses = CourseListItems(cList);
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            var service = CreateScheduleService();
 
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+            if (service.CreateSchedule(model))
+            {
+                TempData["SaveResult"] = "A new schedule was added.";
+                return RedirectToAction("Index");
+            }
+            ModelState.AddModelError("", "A schedule could not be added.");
+            return View(model);
+        }
+        public ActionResult CreateSchool(CreateSchedule model)
+        {
+            View();
+            var times = GetAllTimes();
+            var courses = GetAllCourses();
+            var cList = GetCourses(courses);
+            var tutors = GetTutorByLocation(ListOfLocations.School);
+            var tList = GetLocationsTutors(tutors);
+            model.AvailableDays = TimesSelectListItems(times);
+            model.AvailableTutors = LocationTutorListItems(tList);
+            model.AvailableCourses = CourseListItems(cList);
+            if (!ModelState.IsValid)
+            {
+                return View(model);
+            }
+            var service = CreateScheduleService();
 
-        //public ActionResult Create(ListOfLocations location, CreateSchedule model)
-        //{
-        //    var times = GetAllTimes();
-        //    var tutors = GetTutorByLocation(location);
-        //    var tList = GetLocationsTutors(tutors);
-        //    model.AvailableDays = TimesSelectListItems(times);
-        //    model.AvailableTutors = LocationTutorListItems(tList);
-        //    if (!ModelState.IsValid)
-        //    {
-        //        return View(model);
-        //    }
-        //    var service = CreateScheduleService();
+            if (service.CreateSchedule(model))
+            {
+                TempData["SaveResult"] = "A new schedule was added.";
+                return RedirectToAction("Index");
+            }
+            ModelState.AddModelError("", "A schedule could not be added.");
+            return View(model);
+        }
+        public ActionResult Details(int id)
+        {
+            var svc = CreateScheduleService();
+            var model = svc.GetScheduleById(id);
 
-        //    if (service.CreateSchedule(model))
-        //    {
-        //        TempData["SaveResult"] = "A new schedule was added.";
-        //        return RedirectToAction("Index");
-        //    }
-        //    ModelState.AddModelError("", "A schedule could not be added.");
-        //    return View(model);
-        //}
+            return View(model);
+        }
+
         private ScheduleService CreateScheduleService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
             var service = new ScheduleService(userId);
             return service;
         }
+
+        //Below used to create drop down lists for create 
         private IEnumerable<string> GetAllTimes()
         {
             return new List<string>
@@ -217,6 +180,45 @@ namespace MathMasters.WebMVC.Controllers
                 });
             }
             return tutorList;
+        }
+        public List<Course> GetAllCourses()
+        {
+            var cList = new List<Course>();
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Courses;
+                        {
+                            foreach (Course course in entity)
+                            {
+                                cList.Add(course);
+                            }
+                        }
+                        return cList;
+            }
+        }
+        private IEnumerable<string> GetCourses(List<Course> AvailableCourse)
+        {
+            var cList = new List<string>();
+            foreach (var course in AvailableCourse)
+            {
+                cList.Add(course.Id + "-" + course.Name);
+            }
+            return cList;
+        }
+        private IEnumerable<SelectListItem> CourseListItems(IEnumerable<string> AvailableCourse)
+        {
+            var courseList = new List<SelectListItem>();
+            foreach (var course in AvailableCourse)
+            {
+                courseList.Add(new SelectListItem
+                {
+                    Value = course,
+                    Text = course
+                });
+            }
+            return courseList;
         }
     }
 }

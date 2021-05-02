@@ -26,7 +26,7 @@ namespace MathMasters.Models
 
         [Required]
         [Display(Name = "Course")]
-        public int ScheduleCourseID { get; set; }
+        public string ScheduleCourseID { get; set; }
 
 
         [Display(Name = "Day")]
@@ -43,5 +43,6 @@ namespace MathMasters.Models
         public IEnumerable<SelectListItem> AvailableDays { get; set; }
 
         public IEnumerable<SelectListItem> AvailableTutors { get; set; }
+        public IEnumerable<SelectListItem> AvailableCourses { get; set; }
     }
 }

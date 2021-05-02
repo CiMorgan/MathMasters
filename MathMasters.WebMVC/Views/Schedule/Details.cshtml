@@ -1,0 +1,74 @@
+﻿@model MathMasters.Models.DetailSchedule
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DetailSchedule</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.ScheduleId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ScheduleId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ScheduleTime)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ScheduleTime)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ScheduleRate)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ScheduleRate)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ScheduleLocation)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ScheduleLocation)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ScheduleCourse)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ScheduleCourse)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ScheduleStudent)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ScheduleStudent)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.ScheduleTutor)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.ScheduleTutor)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

@@ -16,6 +16,7 @@ namespace MathMasters.Services
         {
             _userId = userId;
         }
+        //Get All Schedules for Index View
         public IEnumerable<AllScheduleList> GetAllSchedules()
         {
             using (var ctx = new ApplicationDbContext())
@@ -26,34 +27,23 @@ namespace MathMasters.Services
                         .Select(
                             e =>
                                 new AllScheduleList
-                                {
+                                { 
                                     ScheduleId = e.Id,
                                     ScheduleCourse = e.Course.Name,
                                     ScheduleTutor=e.Tutor.LastName,
                                     ScheduleDate = e.Time
                                 }
                         );
-
                 return query.ToArray();
             }
         }
-        //Create a new tutoring session. Location selected first to allow selection of tutors from that location only.
-        //public void CreateLibrary(CreateSchedule model)
-        //{
-        //    CreateSchedule(model);
-        //}
-        //public void CreateCenter(CreateSchedule model)
-        //{
-        //    CreateSchedule(model);
-        //}
-        //public void CreateSchool(CreateSchedule model)
-        //{
-        //    CreateSchedule(model);
-        //}
+        //Create a new schedule - separated by location in Controller
         public bool CreateSchedule(CreateSchedule model)
         {
             int position = model.ScheduleTutorID.IndexOf("-");
             int tutorNum = Int32.Parse(model.ScheduleTutorID.Substring(0, position));
+            int coursePosition = model.ScheduleCourseID.IndexOf("-");
+            int courseNum = Int32.Parse(model.ScheduleCourseID.Substring(0, position));
             int DaySelPos = model.ScheduleDay.IndexOf(":");
             string DaySel = model.ScheduleDay.Substring(DaySelPos - 1);
             int hour = 3;
@@ -70,7 +60,7 @@ namespace MathMasters.Services
                 {
                     StudentId = model.ScheduleStudentID,
                     TutorId = tutorNum,
-                    CourseId = model.ScheduleCourseID,
+                    CourseId = courseNum,
                     Time = sch,
                     Rate = model.ScheduleRate
                 };
@@ -81,9 +71,30 @@ namespace MathMasters.Services
                 return ctx.SaveChanges() > 0;
             }
         }
-
-        //Get All Schedules
-
-
+        //Get details of each scheduled tutoring session
+        public DetailSchedule GetScheduleById(int id)
+        {
+            using (var ctx = new ApplicationDbContext())
+            {
+                var entity =
+                    ctx
+                        .Schedules
+                        .Single(e => e.Id == id);
+                string location = Enum.GetName(typeof(ListOfLocations), entity.Tutor.Location);
+                string studentName = entity.Student.LastName + ", " + entity.Student.FirstName;
+                string tutorName = entity.Tutor.LastName + ", " + entity.Tutor.FirstName;
+                return
+                    new DetailSchedule
+                    {
+                        ScheduleId=entity.Id,
+                        ScheduleTime = entity.Time,
+                        ScheduleRate = entity.Rate,
+                        ScheduleLocation =location,
+                        ScheduleCourse=entity.Course.Name,
+                        ScheduleStudent=studentName,
+                        ScheduleTutor = tutorName,
+                    };
+            }
+        }
     }
 }
