@@ -66,18 +66,6 @@ namespace MathMasters.Services
                     ctx
                         .Students
                         .Single(e => e.Id == id);
-                //var entitySch =
-                //    ctx
-                //        .Schedules
-                //        .Where(f => f.StudentId == id)
-                //        .Select(f => f.Id).ToList();
-                //if (entitySch != null)
-                //{
-                //    foreach (var schedule in entitySch)
-                //    {
-                //        //var courseName
-                //    }
-                //} 
                 return
                     new DetailStudent
                     {

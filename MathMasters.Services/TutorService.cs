@@ -54,41 +54,75 @@ namespace MathMasters.Services
                 return query.ToArray();
             }
         }
-        //Get course by ID
         public DetailTutor GetTutorById(int id)
         {
+            string FirstName = "";
+            string LastName = "";
+            ListOfLocations location = new ListOfLocations();
+            List<int> stListint = new List<int>();
+            List<int> cListint = new List<int>();
+            List<String> stList = new List<String>();
+            List<String> cList = new List<string>();
+            List<DateTime> dList = new List<DateTime>();
+            using (var ctxSch = new ApplicationDbContext())
+            {
+                var entitySch =
+                    ctxSch
+                        .Schedules
+                        .Where(e => e.TutorId == id);
+                if (entitySch != null)
+                {
+                    foreach (var schedule in entitySch)
+                    {
+                        stListint.Add(schedule.StudentId);
+                        cListint.Add(schedule.CourseId);
+                        dList.Add(schedule.Time);
+                    }
+                }
+            }
+            foreach (var number in stListint)
+            {
+                using (var ctxst = new ApplicationDbContext())
+                {
+                    var entitySt =
+                        ctxst
+                            .Students
+                            .Single(g => g.Id == number);
+                    stList.Add(entitySt.LastName+", ");
+                }
+            }
+            foreach (var number in cListint)
+            {
+                using (var ctxC = new ApplicationDbContext())
+                {
+                    var entityC =
+                        ctxC
+                            .Courses
+                            .Single(h => h.Id == number);
+                    cList.Add(entityC.Name+", ");
+                }
+            }
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =
                     ctx
                         .Tutors
-                        .Single(e => e.Id == id);
-                //var entitySch =
-                //    ctx
-                //        .Schedules
-                //        .Where(f => f.StudentId == id)
-                //        .Select(f => f.Id).ToList();
-                //if (entitySch != null)
-                //{
-                //    foreach (var schedule in entitySch)
-                //    {
-                //        //var courseName
-                //    }
-                //}
-
-                return
+                        .Single(f => f.Id == id);
+                FirstName = entity.FirstName;
+                LastName = entity.LastName;
+                location = entity.Location;         
+            }
+            return
                     new DetailTutor
                     {
-                        TutorId = entity.Id,
-                        TutorFirstName = entity.FirstName,
-                        TutorLastName = entity.LastName,
-                        Location = Enum.GetName(typeof(ListOfLocations), entity.Location),
-                        //TimeList = Enum.GetName(typeof(ListOfTimes), entity.Time),
-                        //TutorCourseList = 
-                        //TutorStudentList =
-                        //TutorScheduleList =
-                    };
-            }
+                        TutorId = id,
+                        TutorFirstName = FirstName,
+                        TutorLastName = LastName,
+                        Location = location,
+                        TutorCourseList = cList,
+                        TutorStudentList = stList,
+                        TutorScheduleList = dList
+                    };                  
         }
 
         public bool UpdateTutor(EditTutor model)

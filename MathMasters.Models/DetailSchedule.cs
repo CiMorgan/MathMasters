@@ -1,4 +1,5 @@
-﻿using System;
+﻿using MathMasters.Data;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
@@ -13,13 +14,17 @@ namespace MathMasters.Models
         public int ScheduleId { get; set; }
 
         [Display(Name = "Day and Time")]
-        public DateTime ScheduleTime { get; set; }
+        public string ScheduleTime { get; set; }
+
+        [Display(Name = "Day and Time")]
+        public DateTime TimeSchedule { get; set; }
 
         [Display(Name = "Rate")]
         public double ScheduleRate { get; set; }
 
         [Display(Name = "Location")]
         public string ScheduleLocation { get; set; }
+        public ListOfLocations LocationSchedule { get; set; }
 
         [Display(Name = "Course")]
         public string ScheduleCourse { get; set; }

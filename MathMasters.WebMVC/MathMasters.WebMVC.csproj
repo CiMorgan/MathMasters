@@ -235,6 +235,7 @@
     <Content Include="favicon.ico" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Images\Chalkboard.jpg" />
     <Content Include="Images\Library.jpg" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />
@@ -394,6 +395,8 @@
     <Content Include="Views\Schedule\CreateSchool.cshtml" />
     <Content Include="Views\Schedule\CreateCenter.cshtml" />
     <Content Include="Views\Schedule\Details.cshtml" />
+    <Content Include="Views\Schedule\Edit.cshtml" />
+    <Content Include="Views\Schedule\Delete.cshtml" />
     <None Include="Views\Schedule\Index.cshtml" />
     <Content Include="Scripts\umd\popper.min.js.map" />
     <Content Include="Scripts\umd\popper.js.map" />
@@ -407,6 +410,8 @@
     <Content Include="Scripts\popper-utils.js.map" />
     <Content Include="Views\Course\Create.cshtml" />
     <Content Include="Views\Tutor\Create.cshtml" />
+    <Content Include="Views\Tutor\Edit.cshtml" />
+    <Content Include="Views\Tutor\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

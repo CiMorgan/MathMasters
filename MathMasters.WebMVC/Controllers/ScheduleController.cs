@@ -108,6 +108,82 @@ namespace MathMasters.WebMVC.Controllers
 
             return View(model);
         }
+        public ActionResult Edit(int id)
+        {
+            var model = new EditSchedule();
+            model.ScheduleId = id;
+            var times = GetAllTimes();
+            var courses = GetAllCourses();
+            var cList = GetCourses(courses);
+            var tutors = GetTutorByLocation(model.ScheduleLocation);
+            var tList = GetLocationsTutors(tutors);
+            model.AvailableDays = TimesSelectListItems(times);
+            model.AvailableTutors = LocationTutorListItems(tList);
+            model.AvailableCourses = CourseListItems(cList);
+
+            var service = CreateScheduleService();
+            var detail = service.GetScheduleById(id);
+
+            model.ScheduleId = id;
+            model.ScheduleTutorID = detail.ScheduleTutor;
+            model.ScheduleCourseID = detail.ScheduleCourse;
+            model.ScheduleDate = detail.TimeSchedule;
+            return View(model);
+        }
+        [HttpPost]
+        [ValidateAntiForgeryToken]
+        public ActionResult Edit(int id, EditSchedule model)
+        {
+            View();
+            var times = GetAllTimes();
+            var courses = GetAllCourses();
+            var cList = GetCourses(courses);
+            var tutors = GetTutorByLocation(model.ScheduleLocation);
+            var tList = GetLocationsTutors(tutors);
+            model.ScheduleId = id;
+            model.AvailableDays = TimesSelectListItems(times);
+            model.AvailableTutors = LocationTutorListItems(tList);
+            model.AvailableCourses = CourseListItems(cList);
+
+            if (!ModelState.IsValid) return View(model);
+
+            if (model.ScheduleId != id)
+            {
+                ModelState.AddModelError("", "Id Mismatch");
+                return View(model);
+            }
+
+            var service = CreateScheduleService();
+
+            if (service.UpdateSchedule(model))
+            {
+                TempData["SaveResult"] = "The schedule was updated.";
+                return RedirectToAction("Index");
+            }
+
+            ModelState.AddModelError("", "The schedule could not be updated.");
+            return View(model);
+        }
+        public ActionResult Delete(int id)
+        {
+            var svc = CreateScheduleService();
+            var model = svc.GetScheduleById(id);
+
+            return View(model);
+        }
+        [HttpPost]
+        [ActionName("Delete")]
+        [ValidateAntiForgeryToken]
+        public ActionResult DeleteItem(int id)
+        {
+            var service = CreateScheduleService();
+
+            service.DeleteSchedule(id);
+
+            TempData["SaveResult"] = "The schedule was deleted";
+
+            return RedirectToAction("Index");
+        }
 
         private ScheduleService CreateScheduleService()
         {
@@ -116,7 +192,7 @@ namespace MathMasters.WebMVC.Controllers
             return service;
         }
 
-        //Below used to create drop down lists for create 
+        //Below used to create drop down lists for create and update
         private IEnumerable<string> GetAllTimes()
         {
             return new List<string>

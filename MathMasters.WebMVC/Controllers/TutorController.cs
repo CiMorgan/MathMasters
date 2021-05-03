@@ -62,7 +62,7 @@ namespace MathMasters.WebMVC.Controllers
                     TutorId = detail.TutorId,
                     TutorFirstName = detail.TutorFirstName,
                     TutorLastName = detail.TutorLastName,
-                    //TutorTimeList = detail.
+                    Location = detail.Location
                 };
             return View(model);
         }

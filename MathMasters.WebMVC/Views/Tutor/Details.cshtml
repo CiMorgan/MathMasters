@@ -1,0 +1,71 @@
+﻿@model MathMasters.Models.DetailTutor
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<div>
+    <h4>DetailTutor</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.TutorId)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TutorId)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TutorFirstName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TutorFirstName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.TutorLastName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TutorLastName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Location)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Location)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TutorCourseList)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TutorCourseList)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TutorStudentList)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TutorStudentList)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.TutorScheduleList)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.TutorScheduleList)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>

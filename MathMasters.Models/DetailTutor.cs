@@ -12,21 +12,22 @@ namespace MathMasters.Models
     {
         [Display(Name = "ID")]
         public int TutorId { get; set; }
+
         [Display(Name = "First Name")]
         public string TutorFirstName { get; set; }
+
         [Display(Name = "Last Name")]
         public string TutorLastName { get; set; }
 
         [Display(Name  = "Location")]
-        public string Location { get; set; }
-
-        //[Display(Name = "Available Time")]
-        //public string TimeList { get; set; }
+        public ListOfLocations Location { get; set; }
 
         [Display(Name = "Course List")]
         public List<string> TutorCourseList { get; set; }
+
         [Display(Name = "Student List")]
         public List<string> TutorStudentList { get; set; }
+
         [Display(Name = "Scheduled Tutoring Sessions")]
         public List<DateTime> TutorScheduleList { get; set; }
     }

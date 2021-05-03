@@ -5,13 +5,27 @@
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>@ViewBag.Title - My ASP.NET Application</title>
+    
     @Styles.Render("~/Content/css")
     @Scripts.Render("~/bundles/modernizr")
+    <style>
+        @@-webkit-keyframes tickertape {
+            from{
+                margin-left: 100%;
+                width: 300%;
+            }
+
+            to{
+                margin-left: 0%;
+                width: 100%;
+            } 
+    </style>
 
 </head>
 <body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
+    <div class="navbar navbar-inverse navbar-fixed-top" style="background-color: lightsteelblue">
         <div class="container">
+
             <div class="navbar-header">
                 <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
                     <span class="icon-bar"></span>
@@ -38,8 +52,9 @@
             </div>
         </div>
     </div>
-    <div>
-        <h4>Warning - Not operational. This is a FAKE APP created for a school project!!!</h4>
+    
+    <div style="animation-duration: 10s; animation-name: tickertape">
+        <h4 style="color: red">Warning - Not a real site. This APP created for a school project!!!</h4>
     </div>
     <div class="container body-content">
         @RenderBody()
@@ -48,6 +63,7 @@
             <p>&copy; @DateTime.Now.Year - Math Masters Tutoring Center</p>
         </footer>
     </div>
+
 
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
