@@ -2,6 +2,7 @@
 using MathMasters.Models;
 using System;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
@@ -63,7 +64,7 @@ namespace MathMasters.Services
             List<int> cListint = new List<int>();
             List<String> stList = new List<String>();
             List<String> cList = new List<string>();
-            List<DateTime> dList = new List<DateTime>();
+            List<string> dList = new List<string>();
             using (var ctxSch = new ApplicationDbContext())
             {
                 var entitySch =
@@ -76,7 +77,7 @@ namespace MathMasters.Services
                     {
                         stListint.Add(schedule.StudentId);
                         cListint.Add(schedule.CourseId);
-                        dList.Add(schedule.Time);
+                        dList.Add(schedule.Id+"-"+schedule.Time.ToString("D", CultureInfo.CreateSpecificCulture("en-US"))+"   ");
                     }
                 }
             }
@@ -88,7 +89,7 @@ namespace MathMasters.Services
                         ctxst
                             .Students
                             .Single(g => g.Id == number);
-                    stList.Add(entitySt.LastName+", ");
+                    stList.Add(entitySt.Id+"-"+entitySt.LastName+", "+entitySt.FirstName+"    ");
                 }
             }
             foreach (var number in cListint)
@@ -99,7 +100,7 @@ namespace MathMasters.Services
                         ctxC
                             .Courses
                             .Single(h => h.Id == number);
-                    cList.Add(entityC.Name+", ");
+                    cList.Add(entityC.Id+"-"+entityC.Name+"    ");
                 }
             }
             using (var ctx = new ApplicationDbContext())

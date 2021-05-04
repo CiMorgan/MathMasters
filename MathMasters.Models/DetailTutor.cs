@@ -29,6 +29,6 @@ namespace MathMasters.Models
         public List<string> TutorStudentList { get; set; }
 
         [Display(Name = "Scheduled Tutoring Sessions")]
-        public List<DateTime> TutorScheduleList { get; set; }
+        public List<string> TutorScheduleList { get; set; }
     }
 }
