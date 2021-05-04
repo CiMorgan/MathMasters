@@ -56,39 +56,75 @@ namespace MathMasters.Services
         //Get course by ID
         public DetailCourse GetCourseById(int id)
         {
-            using (var ctx = new ApplicationDbContext())
+            string Name = "";
+            string Desc = "";
+            List<int> stListint = new List<int>();
+            List<int> tListint = new List<int>();
+            List<String> stList = new List<String>();
+            List<String> tList = new List<string>();
+            using (var ctxSch = new ApplicationDbContext())
             {
-                List<string> cList = new List<string>();
                 var entity =
-                    ctx
-                        .Courses
-                        .Single(e => e.Id == id);
-                //var entitySch =
-                //    ctx
-                //        .Schedules
-                //        .Where(f => f.StudentId == id)
-                //        .Select(f => f.Id).ToList();
-                //if (entitySch != null)
-                //{
-                //    foreach (var schedule in entitySch)
-                //    {
-                //        //var courseName
-                //    }
-                //}
-                return
-                    new DetailCourse
-                    {
-                        CourseId = entity.Id,
-                        CourseName = entity.Name,
-                        CourseDescription = entity.Description
-                        //CourseTutorList = 
-                        //CourseStudentList =
-                    };
+                    ctxSch.Courses.Single(d => d.Id == id);
+                Name = entity.Name;
+                Desc = entity.Description;
             }
+            using (var ctxSch = new ApplicationDbContext())
+            {
+                var entitySch =
+                    ctxSch
+                        .Schedules
+                        .Where(e => e.CourseId == id);
+                if (entitySch != null)
+                {
+                    foreach (var schedule in entitySch)
+                    {
+                        if (stListint.IndexOf(schedule.StudentId) == -1)
+                        {
+                            stListint.Add(schedule.StudentId);
+                        }
+                        if (stListint.IndexOf(schedule.TutorId) == -1)
+                        {
+                            tListint.Add(schedule.TutorId);
+                        }                            
+                    }
+                }
+            }
+            foreach (var number in stListint)
+            {
+                using (var ctxst = new ApplicationDbContext())
+                {
+                    var entitySt =
+                        ctxst
+                            .Students
+                            .Single(f => f.Id == number);
+                    stList.Add(entitySt.Id+"-"+entitySt.LastName+", "+entitySt.FirstName+"    ");
+                }
+            }
+            foreach (var number in tListint)
+            {
+                using (var ctxT = new ApplicationDbContext())
+                {
+                    var entityT =
+                        ctxT
+                            .Tutors
+                            .Single(g => g.Id == number);
+                    tList.Add(entityT.Id + "-" + entityT.LastName + ", " + entityT.FirstName+"    ");
+                }
+            }
+
+           return
+                new DetailCourse
+                {
+                    CourseId = id,
+                    CourseName = Name,
+                    CourseDescription = Desc,
+                    CourseTutorList = tList,
+                    CourseStudentList = stList
+                };
         }
         public bool UpdateCourse(EditCourse model)
         {
-            //List<string> cList = new List<string>();
             using (var ctx = new ApplicationDbContext())
             {
                 var entity =

@@ -4,45 +4,58 @@
     ViewBag.Title = "Delete";
 }
 
-<h2>Delete</h2>
+<h2>Delete a tutor</h2>
+<div style="display:flex">
+    <div class="sidebar" style="background-color: lightgray; align-content:center; padding: 10px; width:30%; position: 0; justify-content:center">
+        <img src="~/Images/TutorFemale.jpg" alt="Female Tutor" width="200" height: auto; style="display: block; margin-left: auto; margin-right: auto; padding-top:10px">
+        <h4 style="text-align:center; padding-top: 5px; padding-bottom: 10px">Our Tutors are skilled educators and are dedicated to helping students learn mathematics, build their confidence, and reach their goals.</h4>
+        <ul>
+            <li>75% have advanced degrees in mathematics or physical sciences</li>
+            <li>Specialist in elementary and secendary mathematics</li>
+            <li>All tutors must pass a rigorous screening process to ensure each has a strong foundation in mathematics AND can translate complex concepts to students in a relatable way </li>
+        </ul>
+        <img src="~/Images/OldTutor.jpg" alt="OldTutor" width="200" height: auto; style="display: block; margin-left: auto; margin-right: auto; padding-top:10px">
+    </div>
+    <div style="padding-left: 10px">
+        <h3>Are you sure you want to delete this tutor?</h3>
+        <div>
+            <hr />
+            <dl class="dl-horizontal">
+                <dt>
+                    @Html.DisplayNameFor(model => model.TutorId)
+                </dt>
 
-<h3>Are you sure you want to delete this?</h3>
-<div>
-    <h4>DetailTutor</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.TutorId)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.TutorId)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.TutorId)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.TutorFirstName)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TutorFirstName)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.TutorFirstName)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.TutorFirstName)
-        </dd>
+                <dt>
+                    @Html.DisplayNameFor(model => model.TutorLastName)
+                </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TutorLastName)
-        </dt>
+                <dd>
+                    @Html.DisplayFor(model => model.TutorLastName)
+                </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.TutorLastName)
-        </dd>
+            </dl>
 
-    </dl>
+            @using (Html.BeginForm())
+            {
+                @Html.AntiForgeryToken()
 
-    @using (Html.BeginForm()) {
-        @Html.AntiForgeryToken()
-
-        <div class="form-actions no-color">
-            <input type="submit" value="Delete" class="btn btn-default" /> |
-            @Html.ActionLink("Back to List", "Index")
+                <div class="form-actions no-color">
+                    <input type="submit" value="Delete" class="btn btn-default" /> |
+                    @Html.ActionLink("Back to List", "Index")
+                </div>
+            }
         </div>
-    }
-</div>
+    </div>
+    </div>

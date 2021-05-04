@@ -13,7 +13,7 @@ namespace MathMasters.WebMVC.Controllers
     public class ScheduleController : Controller
     {
         [Authorize]
-        // GET: Tutor
+        // GET: Schedule
         public ActionResult Index()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());
@@ -26,6 +26,7 @@ namespace MathMasters.WebMVC.Controllers
         {
             return View();
         }
+        //Create new schedule at library
         public ActionResult CreateLibrary(CreateSchedule model)
         {
             View();
@@ -51,6 +52,7 @@ namespace MathMasters.WebMVC.Controllers
             ModelState.AddModelError("", "A schedule could not be added.");
             return View(model);
         }
+        //Create new schedule at community center
         public ActionResult CreateCenter(CreateSchedule model)
         {
             View();
@@ -76,6 +78,7 @@ namespace MathMasters.WebMVC.Controllers
             ModelState.AddModelError("", "A schedule could not be added.");
             return View(model);
         }
+        //Create new schedule at school
         public ActionResult CreateSchool(CreateSchedule model)
         {
             View();
@@ -101,6 +104,7 @@ namespace MathMasters.WebMVC.Controllers
             ModelState.AddModelError("", "A schedule could not be added.");
             return View(model);
         }
+        //Get schedule details
         public ActionResult Details(int id)
         {
             var svc = CreateScheduleService();
@@ -108,6 +112,7 @@ namespace MathMasters.WebMVC.Controllers
 
             return View(model);
         }
+        //Update schedule
         public ActionResult Edit(int id)
         {
             var model = new EditSchedule();
@@ -164,6 +169,7 @@ namespace MathMasters.WebMVC.Controllers
             ModelState.AddModelError("", "The schedule could not be updated.");
             return View(model);
         }
+        //Delete schedule
         public ActionResult Delete(int id)
         {
             var svc = CreateScheduleService();
@@ -184,7 +190,6 @@ namespace MathMasters.WebMVC.Controllers
 
             return RedirectToAction("Index");
         }
-
         private ScheduleService CreateScheduleService()
         {
             var userId = Guid.Parse(User.Identity.GetUserId());

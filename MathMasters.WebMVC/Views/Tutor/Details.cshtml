@@ -4,68 +4,79 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
+<h2>This tutor is awesome!</h2>
+<div style="display:flex">
+    <div class="sidebar" style="background-color: lightgray; align-content:center; padding: 10px; width:30%; position: 0; justify-content:center">
+        <img src="~/Images/TutorFemale.jpg" alt="Female Tutor" width="200" height: auto; style="display: block; margin-left: auto; margin-right: auto; padding-top:10px">
+        <h4 style="text-align:center; padding-top: 5px; padding-bottom: 10px">Our Tutors are skilled educators and are dedicated to helping students learn mathematics, build their confidence, and reach their goals.</h4>
+        <ul>
+            <li>75% have advanced degrees in mathematics or physical sciences</li>
+            <li>Specialist in elementary and secendary mathematics</li>
+            <li>All tutors must pass a rigorous screening process to ensure each has a strong foundation in mathematics AND can translate complex concepts to students in a relatable way </li>
+        </ul>
+        <img src="~/Images/OldTutor.jpg" alt="Old Tutor" width="200" height: auto; style="display: block; margin-left: auto; margin-right: auto; padding-top:10px">
+    </div>
 
-<div>
-    <h4>DetailTutor</h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.TutorId)
-        </dt>
+    <div style="padding-left: 10px">
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.TutorId)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.TutorId)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.TutorId)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TutorFirstName)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.TutorFirstName)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.TutorFirstName)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.TutorFirstName)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.TutorLastName)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.TutorLastName)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.TutorLastName)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.TutorLastName)
+            </dd>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.Location)
-        </dt>
+            <dt>
+                @Html.DisplayNameFor(model => model.Location)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.Location)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.TutorCourseList)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.Location)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.TutorCourseList)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.TutorCourseList)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.TutorStudentList)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.TutorCourseList)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.TutorStudentList)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.TutorStudentList)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.TutorScheduleList)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.TutorStudentList)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.TutorScheduleList)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.TutorScheduleList)
-        </dd>
+            <dd>
+                @Html.DisplayFor(model => model.TutorScheduleList)
+            </dd>
 
-    </dl>
-</div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { /* id = Model.PrimaryKey */ }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
+    </div>

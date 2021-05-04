@@ -128,6 +128,7 @@ namespace MathMasters.Services
                 return ctx.SaveChanges() > 0;
             }
         }
+        //Delete schedule
         public bool DeleteSchedule(int id)
         {
             using (var ctx = new ApplicationDbContext())
