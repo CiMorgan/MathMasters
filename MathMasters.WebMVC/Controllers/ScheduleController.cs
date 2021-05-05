@@ -33,7 +33,7 @@ namespace MathMasters.WebMVC.Controllers
             var times = GetAllTimes();
             var courses = GetAllCourses();
             var cList = GetCourses(courses);
-            var tutors = GetTutorByLocation(ListOfLocations.School);
+            var tutors = GetTutorByLocation(ListOfLocations.Library);
             var tList = GetLocationsTutors(tutors);
             model.AvailableDays = TimesSelectListItems(times);
             model.AvailableTutors = LocationTutorListItems(tList);
@@ -59,7 +59,7 @@ namespace MathMasters.WebMVC.Controllers
             var times = GetAllTimes();
             var courses = GetAllCourses();
             var cList = GetCourses(courses);
-            var tutors = GetTutorByLocation(ListOfLocations.School);
+            var tutors = GetTutorByLocation(ListOfLocations.CommunityCenter);
             var tList = GetLocationsTutors(tutors);
             model.AvailableDays = TimesSelectListItems(times);
             model.AvailableTutors = LocationTutorListItems(tList);
@@ -115,12 +115,14 @@ namespace MathMasters.WebMVC.Controllers
         //Update schedule
         public ActionResult Edit(int id)
         {
+            var svc = CreateScheduleService();
+            var modelOrg = svc.GetScheduleById(id);
             var model = new EditSchedule();
             model.ScheduleId = id;
             var times = GetAllTimes();
             var courses = GetAllCourses();
             var cList = GetCourses(courses);
-            var tutors = GetTutorByLocation(model.ScheduleLocation);
+            var tutors = GetTutorByLocation(modelOrg.LocationSchedule);
             var tList = GetLocationsTutors(tutors);
             model.AvailableDays = TimesSelectListItems(times);
             model.AvailableTutors = LocationTutorListItems(tList);

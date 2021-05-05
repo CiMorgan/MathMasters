@@ -44,7 +44,7 @@ namespace MathMasters.Services
             int position = model.ScheduleTutorID.IndexOf("-");
             int tutorNum = Int32.Parse(model.ScheduleTutorID.Substring(0, position));
             int coursePosition = model.ScheduleCourseID.IndexOf("-");
-            int courseNum = Int32.Parse(model.ScheduleCourseID.Substring(0, position));
+            int courseNum = Int32.Parse(model.ScheduleCourseID.Substring(0, coursePosition));
             int DaySelPos = model.ScheduleDay.IndexOf(":");
             string DaySel = model.ScheduleDay.Substring(DaySelPos - 1);
             int hour = 3;
@@ -84,7 +84,7 @@ namespace MathMasters.Services
                 string location = Enum.GetName(typeof(ListOfLocations), entity.Tutor.Location);
                 string studentName = entity.Student.LastName + ", " + entity.Student.FirstName;
                 string tutorName = entity.Tutor.LastName + ", " + entity.Tutor.FirstName;
-                string whenSchedule = entity.Time.ToString("D", CultureInfo.CreateSpecificCulture("en-US"));
+                string whenSchedule = entity.Time.ToString("f", CultureInfo.CreateSpecificCulture("en-US"));
                 return
                     new DetailSchedule
                     {
@@ -106,7 +106,7 @@ namespace MathMasters.Services
             int position = model.ScheduleTutorID.IndexOf("-");
             int tutorNum = Int32.Parse(model.ScheduleTutorID.Substring(0, position));
             int coursePosition = model.ScheduleCourseID.IndexOf("-");
-            int courseNum = Int32.Parse(model.ScheduleCourseID.Substring(0, position));
+            int courseNum = Int32.Parse(model.ScheduleCourseID.Substring(0, coursePosition));
             int DaySelPos = model.ScheduleDay.IndexOf(":");
             string DaySel = model.ScheduleDay.Substring(DaySelPos - 1);
             int hour = 3;

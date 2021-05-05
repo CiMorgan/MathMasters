@@ -1,7 +1,7 @@
 ﻿@model MathMasters.Models.CreateSchedule
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "CreateLibrary";
 }
 
 <h2>Create a tutoring session at the Library</h2>
@@ -66,12 +66,12 @@
             </div>
         </div>*@
 
-            <div class="form-group"; style="padding-top: 200px">
-                <div class="col-md-offset-2 col-md-10">
-                    <input type="submit" value="Create" class="btn btn-default" />
-                </div>
+        <div class="form-group"; style="padding-top: 200px">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
             </div>
         </div>
+    </div>
 }
 
 <div>
@@ -83,7 +83,7 @@
     <script>
         $(document).ready(function () {
             $(".datepicker").datepicker({
-                dateFormat: "dd-mm-yy",
+                dateFormat: "mm-dd-yy",
                 changemonth: true,
                 changeyear: true
             });

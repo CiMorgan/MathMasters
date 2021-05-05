@@ -1,10 +1,10 @@
 ﻿@model MathMasters.Models.CreateSchedule
 
 @{
-    ViewBag.Title = "Create";
+    ViewBag.Title = "CreateSchool";
 }
 
-<h2>Create a tutoring session</h2>
+<h2>Create a tutoring session at the school</h2>
 
 
 @using (Html.BeginForm())
@@ -12,7 +12,6 @@
     @Html.AntiForgeryToken()
 
     <div class="form-horizontal">
-        <h4>CreateSchedule</h4>
         <hr />
         @Html.ValidationSummary(true, "", new { @class = "text-danger" })
         <div class="form-group">
@@ -67,16 +66,16 @@
             </div>
         </div>*@
 
-            <div class="form-group"; style="padding-top: 200px">
-                <div class="col-md-offset-2 col-md-10">
+        <div class="form-group"; style="padding-top: 200px">
+            <div class="col-md-offset-2 col-md-10">
                     <input type="submit" value="Create" class="btn btn-default" />
-                </div>
             </div>
         </div>
+    </div>
 }
 
 <div>
-    @Html.ActionLink("Back to Location Selection", "Index")
+    @Html.ActionLink("Back to Schedules", "Index")
 </div>
 
 @section Scripts {
@@ -84,7 +83,7 @@
     <script>
         $(document).ready(function () {
             $(".datepicker").datepicker({
-                dateFormat: "dd-mm-yy",
+                dateFormat: "mm-dd-yy",
                 changemonth: true,
                 changeyear: true
             });
