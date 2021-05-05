@@ -15,14 +15,14 @@ namespace MathMasters.WebMVC.Controllers
 
         public ActionResult About()
         {
-            ViewBag.Message = "Your application description page.";
+            ViewBag.Message = "This is a fake application.";
 
             return View();
         }
 
         public ActionResult Contact()
         {
-            ViewBag.Message = "Your contact page.";
+            ViewBag.Message = "Please do not contact for math assistance since this is a fake application.";
 
             return View();
         }

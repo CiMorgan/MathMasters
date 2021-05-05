@@ -5,60 +5,71 @@
 }
 
 <h2>Student Details</h2>
+<div style="display:flex">
+    <div class="sidebar" style="background-color: lightskyblue; align-content:center; padding: 10px; width:30%; position: 0; justify-content:center">
+        <img src="~/Images/Girl2.jpg" alt="Young Girl" width="200" height: auto; style="display: block; margin-left: auto; margin-right: auto; padding-top:10px">
+        <h3 style="text-align:center; padding-top: 5px; padding-bottom: 10px">Our students are our mission!!!</h3>
+        <p><i>  "Math Masters makes me believe I can do anything!"</i></p>
+        <p><i>  "I love math!"</i>
+        <p><i>  "Math Masters has helped me become a contender for the IMO in St. Petersburg" </i></p>
+        <p><i>  "Numbers are fun!"</i></p>
+        <p><i>  "Math Masters helped me score an 800 on SAT math."</i></p>
+        <img src="~/Images/Boy1.jpg" alt="Boy" width="200" height: auto; style="display: block; margin-left: auto; margin-right: auto; padding-top:10px">
+    </div>
+    <div style="padding-left:10px">
+        <h4></h4>
+        <hr />
+        <dl class="dl-horizontal">
+            <dt>
+                @Html.DisplayNameFor(model => model.StudentId)
+            </dt>
 
-<div>
-    <h4></h4>
-    <hr />
-    <dl class="dl-horizontal">
-        <dt>
-            @Html.DisplayNameFor(model => model.StudentId)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.StudentId)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.StudentId)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.StudentFirstName)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.StudentFirstName)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.StudentFirstName)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.StudentFirstName)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.StudentLastName)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.StudentLastName)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.StudentLastName)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.StudentLastName)
-        </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.StudentGradeLevel)
+            </dt>
 
-        <dt>
-            @Html.DisplayNameFor(model => model.StudentGradeLevel)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.StudentGradeLevel)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.StudentCourseList)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.StudentGradeLevel)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.StudentCourseList)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.StudentCourseList)
+            </dd>
+            <dt>
+                @Html.DisplayNameFor(model => model.StudentScheduleList)
+            </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.StudentCourseList)
-        </dd>
-        <dt>
-            @Html.DisplayNameFor(model => model.StudentScheduleList)
-        </dt>
+            <dd>
+                @Html.DisplayFor(model => model.StudentScheduleList)
+            </dd>
 
-        <dd>
-            @Html.DisplayFor(model => model.StudentScheduleList)
-        </dd>
-
-    </dl>
+        </dl>
+    </div>
+    <p>
+        @Html.ActionLink("Edit", "Edit", new { id = Model.StudentId }) |
+        @Html.ActionLink("Back to List", "Index")
+    </p>
 </div>
-<p>
-    @Html.ActionLink("Edit", "Edit", new { id = Model.StudentId }) |
-    @Html.ActionLink("Back to List", "Index")
-</p>
