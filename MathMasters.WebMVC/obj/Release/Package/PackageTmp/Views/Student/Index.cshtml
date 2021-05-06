@@ -1,0 +1,69 @@
+﻿@model IEnumerable<MathMasters.Models.AllStudentList>
+
+@{
+    ViewBag.Title = "Index";
+}
+
+<h2>Index</h2>
+<div style="display:flex">
+    <div class="sidebar" style="background-color: lightskyblue; align-content:center; padding: 10px; width:30%; position: 0; justify-content:center">
+        <img src="~/Images/Boy2.jpg" alt="Young Boy" width="200" height: auto; style="display: block; margin-left: auto; margin-right: auto; padding-top:10px">
+        <h3 style="text-align:center; padding-top: 5px; padding-bottom: 10px">Our students are our mission!!!</h3>
+        <p><i>  "Math Masters makes me believe I can do anything!"</i></p>
+        <p><i>  "I love math!"</i>
+        <p><i>  "Math Masters has helped me become a contender for the IMO in St. Petersburg" </i></p>
+        <p><i>  "Numbers are fun!"</i></p>
+        <p><i>  "Math Masters helped me score an 800 on SAT math."</i></p>
+        <img src="~/Images/Girl1.jpg" alt="Girl" width="200" height: auto; style="display: block; margin-left: auto; margin-right: auto; padding-top:10px">
+    </div>
+    <div style="padding-left:10px;">
+        <p>
+            @Html.ActionLink("Add a Student", "Create")
+        </p>
+        @if (TempData.ContainsKey("SaveResult"))
+        {
+            <div class="alert alert-success fade in" role="alert">
+
+                <button type="button" class="close" data-dismiss="alert">
+                    <span>&times;</span>
+                </button>
+                @TempData["SaveResult"]
+            </div>
+        }
+        <table class="table">
+            <tr>
+                <th>
+                    @Html.DisplayNameFor(model => model.StudentId)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.StudentName)
+                </th>
+                <th>
+                    @Html.DisplayNameFor(model => model.StudentGradeLevel)
+                </th>
+                <th></th>
+            </tr>
+
+            @foreach (var item in Model)
+            {
+                <tr>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StudentId)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StudentName)
+                    </td>
+                    <td>
+                        @Html.DisplayFor(modelItem => item.StudentGradeLevel)
+                    </td>
+                    <td>
+                        @Html.ActionLink("Edit", "Edit", new { id = item.StudentId }) |
+                        @Html.ActionLink("Details", "Details", new { id = item.StudentId }) |
+                        @Html.ActionLink("Delete", "Delete", new { id = item.StudentId })
+                    </td>
+                </tr>
+            }
+
+        </table>
+    </div>
+</div>
