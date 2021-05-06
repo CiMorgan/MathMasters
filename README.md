@@ -9,7 +9,7 @@ Table of Contents:
 1. License
 
 #### 1. Description
-The Math Masters Tutoring Service connects students to tutors in the local area. Administrators will be able to create, read, update, and delete students, tutors, and courses to the web application. Students will be able to create, read, update, and delete tutoring sessions (schedule). The app is built on four data tables: Student, Tutor, Course, and Schedule. 
+The Math Masters Tutoring Service connects students to tutors in the local area. Administrators will be able to create, read, update, and delete students, tutors, and courses to the web application. Students will be able to create, read, update, and delete tutoring sessions (schedule). The app is built on four data tables: Student, Tutor, Course, and Schedule. At this time, it runs from an admin level only as there is only one type of user log in. The admin can add, edit, and delete all information. When a new schedule is entered, the admin will need to know the student ID. When a student level is built, this will auto-populate with the appropriate student ID with the student name visible to the student user. 
 1.	The properties of the Tutor Table are Id (Primary Key), FirstName, and LastName, plus the iCollection CourseList for the list of courses connected to the tutor.
 1.	The properties of the Student Table are Id (Primary Key), FirstName, LastName, and GradeLevel.
 1.	The properties of the Course Table are Id (Primary Key), Name, and Description, plus the iCollection TutorList, for the list of tutors connected to the course.
