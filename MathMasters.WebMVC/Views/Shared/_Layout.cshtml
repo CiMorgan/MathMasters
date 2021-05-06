@@ -26,13 +26,13 @@
         <div class="container" style="background-image: url(../Images/Banner.jpg);
              background-repeat: round;
              height: 150px;
-             position: relative;">
+             position: relative; display: inline; float: left;">
             <div class="navbar-header" style="display: block; float:left; font-size: large;">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
+                @*<button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>
+            <span class="icon-bar"></span>*@
+                <!--</button>-->
                 <style type="text/css">
                     .actionlink {
                         font-size: xx-large;
@@ -41,18 +41,24 @@
                 </style>
                 @Html.ActionLink("Math Masters Tutoring Center", "Index", "Home", new { area = "" }, new { @class = "actionlink" })
             </div>
-            <div class="navbar-collapse.collapse.show">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
+            <div>
+                <ul style="display: inline; float:left">
+                    <style type="text/css">
+                        .actionlink1 {
+                            font-size: large;
+                            color: yellow;
+                        }
+                    </style>
+                    <li style="display: inline-flex; list-style-type: none; margin:5px; padding: 2px">@Html.ActionLink("Home", "Index", "Home")</li>
                     @if (User.Identity.IsAuthenticated)
                     {
-                        <li>@Html.ActionLink("Students", "Index", "Student")</li>
-                        <li>@Html.ActionLink("Tutors", "Index", "Tutor")</li>
-                        <li>@Html.ActionLink("Courses", "Index", "Course")</li>
-                        <li>@Html.ActionLink("Schedules", "Index", "Schedule")</li>
+                        <li style="display: inline-flex; list-style-type: none; margin:5px; padding: 2px;">@Html.ActionLink("Students", "Index", "Student")</li>
+                        <li style="display: inline-flex; list-style-type: none; margin:5px; padding: 2px">@Html.ActionLink("Tutors", "Index", "Tutor")</li>
+                        <li style="display: inline-flex; list-style-type: none; margin:5px; padding: 2px">@Html.ActionLink("Courses", "Index", "Course")</li>
+                        <li style="display: inline-flex; list-style-type: none; margin:5px; padding: 2px">@Html.ActionLink("Schedules", "Index", "Schedule")</li>
                     }
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
+                    <li style="display: inline-flex; list-style-type: none; margin:5px; padding: 2px">@Html.ActionLink("About", "About", "Home")</li>
+                    <li style="display: inline-flex; list-style-type: none; margin:5px; padding: 2px">@Html.ActionLink("Contact", "Contact", "Home")</li>
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>
